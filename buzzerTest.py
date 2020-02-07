@@ -13,3 +13,22 @@ while True:
         piezo.duty_cycle = 0  # Off
         time.sleep(0.05)  # Pause between notes
     time.sleep(0.5)
+
+
+
+#Experimental Code to test making different notes
+ON = 2**15
+OFF = 0
+c = 262
+d = 294
+e = 330
+f = 349
+notes = [c, c, d, c, f, e]
+while True:
+    for f in notes:
+        piezo.frequency = f
+        piezo.duty_cycle = ON
+        time.sleep(0.2)
+        piezo.duty_cycle = OFF
+        time.sleep(0.2)
+
