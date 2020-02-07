@@ -16,6 +16,8 @@ low_right_servo = servo.Servo(pwm2) #alternative name servo2
 up_left_servo = servo.Servo(pwm3) #alternative name servo3
 up_right_servo = servo.Servo(pwm4) #alternative name servo4
 
+timeout = time.time() + 60*0.5   # 0.5 minutes from now
+
 def danceTestOne():
     while True:
         for angle in range(60, 120, 5):  # 30 - 150 degrees, 5 degrees at a time.
@@ -34,6 +36,9 @@ def danceTestOne():
             up_left_servo.angle = angle
             up_right_servo.angle = angle - 180
             time.sleep(0.05)
+
+        if time.time() > timeout:
+            break
 
 danceTestOne()
 
