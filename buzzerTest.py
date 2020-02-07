@@ -95,11 +95,18 @@ NOTE_CS8 =4435
 NOTE_D8  =4699
 NOTE_DS8 =4978
 
-notes = [NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_F4, NOTE_E4]
+wholeNote = 2
+halfNote = 1
+quarterNote = 0.5
+eighthNote = 0.25
+sixteenthNote = 0.125
 
+notes = [NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_F4, NOTE_E4, ]
+shootingStarsNotes = [NOTE_E3, NOTE_CS3, NOTE_GS2, NOTE_B2]
+shootingStarsBeats = [wholeNote, wholeNote, wholeNote, wholeNote]
 
 # Main loop will go through each tone in order up and down.
 while True:
     # Play tones going from start to end of list.
-    for note in notes:
-        simpleio.tone(PIEZO_PIN, note, duration=0.5)
+    for index in range(0, 27, 1):
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
