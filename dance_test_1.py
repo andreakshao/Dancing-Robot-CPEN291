@@ -5,6 +5,7 @@ import pulseio
 from adafruit_motor import servo
 
 # create a PWMOut object on Pin A2.
+# can change inputs board.A1 etc.
 pwm1 = pulseio.PWMOut(board.A1, duty_cycle=2 ** 15, frequency=50)
 pwm2 = pulseio.PWMOut(board.A2, duty_cycle=2 ** 15, frequency=50)
 pwm3 = pulseio.PWMOut(board.A3, duty_cycle=2 ** 15, frequency=50)
