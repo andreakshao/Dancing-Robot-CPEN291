@@ -54,11 +54,8 @@ def danceTest_1():
         if time.time() > timeout:
             break
 
-def buzzerTest_1():
-    #try this man
-    return
+
 
 danceTest_1()
-buzzerTest_1()
 
 
