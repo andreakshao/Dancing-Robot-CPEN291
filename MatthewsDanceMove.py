@@ -48,7 +48,9 @@ while True:
             leftFoot.angle = 90
         time.sleep(0.05)
 
-    left
+    leftKnee.angle = 90
+    rightKnee.angle = 90
+    time.sleep(0.10)
     for count in range(0, 19, 1):
 
 
