@@ -5,10 +5,10 @@ from adafruit import servo
 
 
 # create a PWMOut object on Pin A2.
-leftKneePwm = pulseio.PWMOut(board.A2, duty_cycle=2 ** 15, frequency=50)
-rightKneePwm = pulseio.PWMOut(board.__, duty_cycle=2 ** 15, frequency=50)
-leftFootPwm = pulseio.PWMOut(board.__, duty_cycle=2 ** 15, frequency=50)
-rightFootPwm = pulseio.PWMOut(board.__, duty_cycle=2 ** 15, frequency=50)
+leftKneePwm = pulseio.PWMOut(board.D13, duty_cycle=2 ** 15, frequency=50)
+rightKneePwm = pulseio.PWMOut(board.D12, duty_cycle=2 ** 15, frequency=50)
+leftFootPwm = pulseio.PWMOut(board.D10, duty_cycle=2 ** 15, frequency=50)
+rightFootPwm = pulseio.PWMOut(board.D5, duty_cycle=2 ** 15, frequency=50)
  
 # Create a servo object, my_servo.
 leftKnee = servo.Servo(leftKneePwm)

@@ -5,7 +5,7 @@ from adafruit_motor import servo
 
 pwm1 = pulseio.PWMOut(board.D13, duty_cycle=2 ** 15, frequency = 50)
 pwm2 = pulseio.PWMOut(board.D12, duty_cycle=2 ** 15, frequency = 50)
-pwm3 = pulseio.PWMOut(board.D11, duty_cycle=2 ** 15, frequency = 50)
+pwm3 = pulseio.PWMOut(board.D10, duty_cycle=2 ** 15, frequency = 50)
 pwm4 = pulseio.PWMOut(board.D5, duty_cycle=2 ** 15, frequency=  50)
 
 lowLeft = servo.Servo(pwm1)
