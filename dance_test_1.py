@@ -6,10 +6,10 @@ from adafruit_motor import servo
 
 # create a PWMOut object on Pin A2.
 # can change inputs board.A1 etc.
-pwm1 = pulseio.PWMOut(board.A1, duty_cycle=2 ** 15, frequency=50)
-pwm2 = pulseio.PWMOut(board.A2, duty_cycle=2 ** 15, frequency=50)
-pwm3 = pulseio.PWMOut(board.A3, duty_cycle=2 ** 15, frequency=50)
-pwm4 = pulseio.PWMOut(board.A4, duty_cycle=2 ** 15, frequency=50)
+pwm1 = pulseio.PWMOut(board.D13, duty_cycle=2 ** 15, frequency=50)
+pwm2 = pulseio.PWMOut(board.D12, duty_cycle=2 ** 15, frequency=50)
+pwm3 = pulseio.PWMOut(board.D11, duty_cycle=2 ** 15, frequency=50)
+pwm4 = pulseio.PWMOut(board.D5, duty_cycle=2 ** 15, frequency=50)
 
 # Create a servo object, my_servo.
 low_left_servo = servo.Servo(pwm1) #alternative name servo1
@@ -23,18 +23,22 @@ def danceTest_1():
     while True:
         for angle in range(60, 120, 5):  # 30 - 150 degrees, 5 degrees at a time.
             low_left_servo.angle = angle
+            time.sleep(0.05)
             low_right_servo.angle = 180 - angle
             time.sleep(0.05)
         for angle in range(120, 60, -5):  # 150 - 30 degrees, 5 degrees at a time.
             low_left_servo.angle = angle
+            time.sleep(0.05)
             low_right_servo.angle = 180 - angle
             time.sleep(0.05)
         for angle in range(60, 120, 5):  # 30 - 150 degrees, 5 degrees at a time.
             up_left_servo.angle = angle
+            time.sleep(0.05)
             up_right_servo.angle = 180 - angle
             time.sleep(0.05)
         for angle in range(120, 60, -5):  # 150 - 30 degrees, 5 degrees at a time.
             up_left_servo.angle = angle
+            time.sleep(0.05)
             up_right_servo.angle = 180 - angle
             time.sleep(0.05)
 
@@ -54,11 +58,7 @@ def danceTest_1():
         if time.time() > timeout:
             break
 
-def buzzerTest_1():
-    #try this man
-    return
 
 danceTest_1()
-buzzerTest_1()
 
 
