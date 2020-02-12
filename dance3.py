@@ -15,15 +15,5 @@ lowRight = servo.Servo(pwm2)
 upperRight = servo.Servo(pwm3)
 upperLeft = servo.Servo(pwm4)
 
-while True:
-    for num in range(10):
-        lowLeft.angle = 60
-        lowRight.angle = 60
-        lowLeft.angle = 120
-        lowRight.angle = 120
-
-    for num in range(15):
-        upperRight.angle = 50
-        upperLeft.angle = 130
-        upperLeft.angle = 50
-        upperRight.angle = 130
+for num in range(50):
+    
