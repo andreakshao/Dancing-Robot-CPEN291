@@ -23,33 +23,33 @@ def danceTest_1():
     while True:
         for angle in range(60, 120, 5):  # 30 - 150 degrees, 5 degrees at a time.
             low_left_servo.angle = angle
-            low_right_servo.angle = angle - 180
+            low_right_servo.angle = 180 - angle
             time.sleep(0.05)
         for angle in range(120, 60, -5):  # 150 - 30 degrees, 5 degrees at a time.
             low_left_servo.angle = angle
-            low_right_servo.angle = angle - 180
+            low_right_servo.angle = 180 - angle
             time.sleep(0.05)
         for angle in range(60, 120, 5):  # 30 - 150 degrees, 5 degrees at a time.
             up_left_servo.angle = angle
-            up_right_servo.angle = angle - 180
+            up_right_servo.angle = 180 - angle
             time.sleep(0.05)
         for angle in range(120, 60, -5):  # 150 - 30 degrees, 5 degrees at a time.
             up_left_servo.angle = angle
-            up_right_servo.angle = angle - 180
+            up_right_servo.angle = 180 - angle
             time.sleep(0.05)
 
-        for angle in range(60, 120, 5):
-            low_left_servo.angle = angle
-            low_right_servo.angle = angle - 180
-            up_left_servo.angle = angle
-            up_right_servo.angle = angle - 180
-            time.sleep(0.05)
-        for angle in range(120, 60, -5):
-            low_left_servo.angle = angle
-            low_right_servo.angle = angle - 180
-            up_left_servo.angle = angle
-            up_right_servo.angle = angle - 180
-            time.sleep(0.05)
+        # for angle in range(60, 120, 5):
+        #     low_left_servo.angle = angle
+        #     low_right_servo.angle = 180 - angle
+        #     up_left_servo.angle = angle
+        #     up_right_servo.angle = 180 - angle
+        #     time.sleep(0.05)
+        # for angle in range(120, 60, -5):
+        #     low_left_servo.angle = angle
+        #     low_right_servo.angle = 180 - angle
+        #     up_left_servo.angle = angle
+        #     up_right_servo.angle = 180 - angle
+        #     time.sleep(0.05)
 
         if time.time() > timeout:
             break
