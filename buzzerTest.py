@@ -102,7 +102,7 @@ eighthNote = 0.25
 sixteenthNote = 0.125
 
 notes = [NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_F4, NOTE_E4, ]
-shootingStarsNotes = [NOTE_E3, NOTE_CS3, NOTE_GS2, NOTE_B2, NOTE_DS4, NOTE_DS4, 0, NOTE_E4, NOTE_B3, NOTE_GS3, NOTE_DS4]
+shootingStarsNotes = [NOTE_E4, NOTE_CS4, NOTE_GS3, NOTE_B3, NOTE_DS5, NOTE_DS5, 0, NOTE_E5, NOTE_B4, NOTE_GS4, NOTE_DS5]
 shootingStarsBeats = [wholeNote, wholeNote, wholeNote, wholeNote, quarterNote+eighthNote, sixteenthNote, sixteenthNote, quarterNote, eighthNote, sixteenthNote, sixteenthNote]
 
 # Main loop will go through each tone in order up and down.
