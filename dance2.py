@@ -32,3 +32,8 @@ def dance2():
             upperLeft.angle = 130
             upperLeft.angle = 50
             upperRight.angle = 130
+
+        if time.time() > timeout:
+            break
+
+dance2()

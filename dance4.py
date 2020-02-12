@@ -80,18 +80,6 @@ def dance4():
             upperLeft.angle = 180 - angle
             time.sleep(0.15)
 
-        # for angle in range(60, 120, 5):
-        #     low_left_servo.angle = angle
-        #     low_right_servo.angle = 180 - angle
-        #     up_left_servo.angle = angle
-        #     up_right_servo.angle = 180 - angle
-        #     time.sleep(0.05)
-        # for angle in range(120, 60, -5):
-        #     low_left_servo.angle = angle
-        #     low_right_servo.angle = 180 - angle
-        #     up_left_servo.angle = angle
-        #     up_right_servo.angle = 180 - angle
-        #     time.sleep(0.05)
 
         if time.time() > timeout:
             break
