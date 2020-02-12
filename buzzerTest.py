@@ -101,12 +101,23 @@ quarterNote = 0.5
 eighthNote = 0.25
 sixteenthNote = 0.125
 
-notes = [NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_F4, NOTE_E4, ]
-shootingStarsNotes = [NOTE_E6, NOTE_CS6, NOTE_GS5, NOTE_B5, NOTE_DS7, NOTE_DS7, 0, NOTE_E7, NOTE_B6, NOTE_GS6, NOTE_DS7]
-shootingStarsBeats = [wholeNote, wholeNote, wholeNote, wholeNote, quarterNote+eighthNote, sixteenthNote, sixteenthNote, quarterNote, eighthNote, sixteenthNote, sixteenthNote]
+notes = [NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_F4, NOTE_E4]
+shootingStarsNotes = [
+    NOTE_E6, NOTE_CS6, NOTE_GS5, NOTE_B5, 
+    NOTE_DS7, NOTE_DS7, 0, NOTE_E7, NOTE_B6, NOTE_GS6, NOTE_DS7,
+    NOTE_DS7, NOTE_DS7, 0, NOTE_E7, NOTE_B6, NOTE_GS6, NOTE_DS7,  
+    NOTE_DS7, NOTE_DS7, 0, NOTE_E7, NOTE_B6, NOTE_GS6, NOTE_DS7
+    ]
+shootingStarsBeats = [
+    wholeNote, wholeNote, wholeNote, wholeNote, 
+    quarterNote+eighthNote, sixteenthNote, sixteenthNote, quarterNote, eighthNote, sixteenthNote, sixteenthNote, 
+    quarterNote+eighthNote, sixteenthNote, sixteenthNote, quarterNote, eighthNote, sixteenthNote, sixteenthNote, 
+    quarterNote+eighthNote, sixteenthNote, sixteenthNote, quarterNote, eighthNote, sixteenthNote, sixteenthNote
+    ]
+
 
 # Main loop will go through each tone in order up and down.
 while True:
     # Play tones going from start to end of list.
-    for index in range(0, shootingStarsBeats.__len__(), 1):
+    for index in range(0, len(shootingStarsBeats), 1):
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
