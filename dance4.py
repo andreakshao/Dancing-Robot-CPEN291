@@ -1,4 +1,3 @@
-#Note: TODO Needs to be tested.
 import time
 import board
 import pulseio
@@ -23,45 +22,51 @@ def dance4():
     while True:
         for angle in range(70, 110, 20):  # 30 - 150 degrees, 5 degrees at a time.
             lowLeft.angle = angle
-            time.sleep(0.01)
+            time.sleep(0.1)
             lowRight.angle = 180 - angle
-            time.sleep(0.01)
+            time.sleep(0.1)
             upperRight.angle = angle
-            time.sleep(0.01)
+            time.sleep(0.1)
             upperLeft.angle = 180 - angle
-            time.sleep(0.01)
+            time.sleep(0.1)
         for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
             lowLeft.angle = angle
-            time.sleep(0.01)
+            time.sleep(0.1)
             lowRight.angle = 180 - angle
-            time.sleep(0.01)
+            time.sleep(0.1)
             upperRight.angle = angle
-            time.sleep(0.01)
+            time.sleep(0.1)
             upperLeft.angle = 180 - angle
-            time.sleep(0.01)
+            time.sleep(0.1)
 
         for angle in range(70, 110, 20):  # 150 - 30 degrees, 5 degrees at a time.
             if angle % 90 == 0:
                 lowLeft.angle = angle - 10
+                time.sleep(0.1)
                 lowRight.angle = 180 - angle + 10
+                time.sleep(0.1)
                 upperRight.angle = angle - 10
+                time.sleep(0.1)
                 upperLeft.angle = 180 - angle + 10
                 time.sleep(0.1)
 
             lowLeft.angle = angle
-            time.sleep(0.01)
+            time.sleep(0.1)
             lowRight.angle = 180 - angle
-            time.sleep(0.01)
+            time.sleep(0.1)
             upperRight.angle = angle
-            time.sleep(0.01)
+            time.sleep(0.1)
             upperLeft.angle = 180 - angle
-            time.sleep(0.01)
+            time.sleep(0.1)
 
         for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
             if angle % 90 == 0:
                 lowLeft.angle = angle - 20
+                time.sleep(0.1)
                 lowRight.angle = 180 - angle + 20
+                time.sleep(0.1)
                 upperRight.angle = angle - 20
+                time.sleep(0.1)
                 upperLeft.angle = 180 - angle + 20
                 time.sleep(0.1)
 
@@ -90,5 +95,3 @@ def dance4():
 
 
 dance4()
-
-
