@@ -18,40 +18,36 @@ rightFoot = servo.Servo(rightFootPwm)
  
 
 while True:
-    for angle in range(0, 180, 5):  # 0 - 180 degrees, 5 degrees at a time.
+    for angle in range(60, 120, 5):  # 0 - 180 degrees, 5 degrees at a time.
         leftKnee.angle = angle
-        rightKnee.angle = angle
+        rightKnee.angle = 180 - angle
         time.sleep(0.05)
         if (angle == 90):
-            rightFoot.angle = 180
-            leftFoot.angle = 180
+            rightFoot.angle = 120
+            leftFoot.angle = 60 
             time.sleep(0.05)
-            rightFoot.angle = 0
-            leftFoot.angle = 0
+            rightFoot.angle = 60
+            leftFoot.angle = 120
             time.sleep(0.05)
-            rightFoot.angle = 90
-            leftFoot.angle = 90
+            rightFoot.angle = 120
+            leftFoot.angle = 60
         time.sleep(0.05)
 
-    for angle in range(180, 5, -5):  # 0 - 180 degrees, 5 degrees at a time.
+    for angle in range(120, 60, -5):  # 0 - 180 degrees, 5 degrees at a time.
         leftKnee.angle = angle
         rightKnee.angle = angle
         time.sleep(0.05)
         if (angle == 90):
-            rightFoot.angle = 180
-            leftFoot.angle = 180
+            rightFoot.angle = 120
+            leftFoot.angle = 60 
             time.sleep(0.05)
-            rightFoot.angle = 0
-            leftFoot.angle = 0
+            rightFoot.angle = 60
+            leftFoot.angle = 120
             time.sleep(0.05)
-            rightFoot.angle = 90
-            leftFoot.angle = 90
+            rightFoot.angle = 120
+            leftFoot.angle = 60
         time.sleep(0.05)
 
     leftKnee.angle = 90
     rightKnee.angle = 90
     time.sleep(0.10)
-    for count in range(0, 19, 1):
-
-
-        
