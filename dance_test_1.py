@@ -21,22 +21,22 @@ timeout = time.time() + 60*5   # 5 minutes from now
 
 def danceTest_1():
     while True:
-        for angle in range(60, 120, 5):  # 30 - 150 degrees, 5 degrees at a time.
+        for angle in range(70, 110, 20):  # 30 - 150 degrees, 5 degrees at a time.
             low_left_servo.angle = angle
-            time.sleep(0.05)
+            time.sleep(0.1)
             low_right_servo.angle = 180 - angle
-            time.sleep(0.05)
-        for angle in range(120, 60, -5):  # 150 - 30 degrees, 5 degrees at a time.
+            time.sleep(0.1)
+        for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
             low_left_servo.angle = angle
-            time.sleep(0.05)
+            time.sleep(0.1)
             low_right_servo.angle = 180 - angle
-            time.sleep(0.05)
-        for angle in range(60, 120, 5):  # 30 - 150 degrees, 5 degrees at a time.
+            time.sleep(0.1)
+        for angle in range(70, 110, 20):  # 30 - 150 degrees, 5 degrees at a time.
             up_left_servo.angle = angle
-            time.sleep(0.05)
+            time.sleep(0.1)
             up_right_servo.angle = 180 - angle
-            time.sleep(0.05)
-        for angle in range(120, 60, -5):  # 150 - 30 degrees, 5 degrees at a time.
+            time.sleep(0.1)
+        for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
             up_left_servo.angle = angle
             time.sleep(0.05)
             up_right_servo.angle = 180 - angle
