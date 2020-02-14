@@ -19,19 +19,28 @@ upperLeft = servo.Servo(pwm4)
 
 timeout = time.time() + 60*5   # 5 minutes from now
 
-def dance2():
+def dance5():
     while True:
             lowRight.angle = 60
+            time.sleep(0.2)
             lowRight.angle = 120
+            time.sleep(0.2)
             lowRight.angle = 60
+            time.sleep(0.2)
             lowRight.angle = 120
+            time.sleep(0.2)
             lowRight.angle = 90
             
             lowLeft.angle = 60
+            time.sleep(0.2)
             lowLeft.angle = 120
+            time.sleep(0.2)
             lowLeft.angle = 60
+            time.sleep(0.2)
             lowLeft.angle = 120
+            time.sleep(0.2)
             lowLeft.angle = 90
             
-            
-dance2()
+
+
+dance5()
