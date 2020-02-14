@@ -11,10 +11,11 @@ pwm3 = pulseio.PWMOut(board.D10, duty_cycle=2 ** 15, frequency=50)
 pwm4 = pulseio.PWMOut(board.D5, duty_cycle=2 ** 15, frequency=50)
 
 # Create a servo object, my_servo.
-lowLeft = servo.Servo(pwm1) #alternative name servo1
-lowRight = servo.Servo(pwm2) #alternative name servo2
-upperRight = servo.Servo(pwm3) #alternative name servo3
-upperLeft = servo.Servo(pwm4) #alternative name servo4
+
+lowLeft = servo.Servo(pwm1)
+lowRight = servo.Servo(pwm2)
+upRight = servo.Servo(pwm3)
+upLeft = servo.Servo(pwm4)
 
 timeout = time.time() + 60*5   # 5 minutes from now
 
