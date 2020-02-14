@@ -17,8 +17,8 @@ pwm4 = pulseio.PWMOut(board.D5, duty_cycle=2 ** 15, frequency=50)
 # Create a servo object, my_servo.
 lowLeft = servo.Servo(pwm1) #alternative name servo1
 lowRight = servo.Servo(pwm2) #alternative name servo2
-upperRight = servo.Servo(pwm3) #alternative name servo3
-upperLeft = servo.Servo(pwm4) #alternative name servo4
+upRight = servo.Servo(pwm3) #alternative name servo3
+upLeft = servo.Servo(pwm4) #alternative name servo4
 
 def dance1():
     for angle in range(60, 120, 20):  # 30 - 150 degrees, 5 degrees at a time.
