@@ -24,7 +24,7 @@ notes = [c, c, d, c, f, e]
 displayio.release_displays()
 
 spi = board.SPI()
-tft_cs = board.D10
+tft_cs = board.D11
 tft_dc = board.D9
 
 display_bus = displayio.FourWire(spi, command=tft_dc, chip_select=tft_cs, reset=board.D7)

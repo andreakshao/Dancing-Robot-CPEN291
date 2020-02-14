@@ -83,27 +83,27 @@ def dance3():
     upperRight.angle = 90
 
     while True:
-        for num in range(60, 120, 20):
-            if num % 40 == 0:
-                lowLeft.angle = num + 20
-                lowRight.angle = num - 20
+        for angle in range(60, 120, 20):
+            if angle % 40 == 0:
+                lowLeft.angle = angle + 20
+                lowRight.angle = angle - 20
                 time.sleep(0.05)
 
-            lowLeft.angle = num
-            lowRight.angle = 180 - num
-            upperLeft.angle = num
-            upperRight.angle = 180 - num
+            lowLeft.angle = angle
+            lowRight.angle = 180 - angle
+            upperLeft.angle = angle
+            upperRight.angle = 180 - angle
             time.sleep(0.1)
 
-        for num in range(120, 60, -20):
-            upperRight.angle = num
-            upperLeft.angle = 180 - num
-            upperLeft.angle = num
-            upperRight.angle = 180 - num
+        for angle in range(120, 60, -20):
+            upperRight.angle = angle
+            upperLeft.angle = 180 - angle
+            upperLeft.angle = angle
+            upperRight.angle = 180 - angle
             time.sleep(0.05)
-            if num % 40:
-                upperRight.angle = num - 20
-                upperLeft.angle = num
+            if angle % 40 == 0:
+                upperRight.angle = angle - 20
+                upperLeft.angle = angle
                 time.sleep(0.1)
 
         if time.time() > timeout:
