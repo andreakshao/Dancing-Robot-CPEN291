@@ -41,7 +41,7 @@ def dance1():
             time.sleep(0.05)
             upRight.angle = 180 - angle
             time.sleep(0.05)
-
+        '
         for angle in range(60, 120, 5):
             lowLeft.angle = angle
             lowRight.angle = 180 - angle
@@ -54,10 +54,6 @@ def dance1():
             upLeft.angle = angle
             upRight.angle = 180 - angle
             time.sleep(0.05)
-
-        if time.time() > timeout:
-            break
-
 
 dance1()
 

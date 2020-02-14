@@ -11,10 +11,11 @@ pwm3 = pulseio.PWMOut(board.D10, duty_cycle=2 ** 15, frequency=50)
 pwm4 = pulseio.PWMOut(board.D5, duty_cycle=2 ** 15, frequency=50)
 
 # Create a servo object, my_servo.
-lowLeft = servo.Servo(pwm1) #alternative name servo1
-lowRight = servo.Servo(pwm2) #alternative name servo2
-upperRight = servo.Servo(pwm3) #alternative name servo3
-upperLeft = servo.Servo(pwm4) #alternative name servo4
+
+lowLeft = servo.Servo(pwm1)
+lowRight = servo.Servo(pwm2)
+upRight = servo.Servo(pwm3)
+upLeft = servo.Servo(pwm4)
 
 timeout = time.time() + 60*5   # 5 minutes from now
 
@@ -25,18 +26,18 @@ def dance4():
             time.sleep(0.1)
             lowRight.angle = 180 - angle
             time.sleep(0.1)
-            upperRight.angle = angle
+            upRight.angle = angle
             time.sleep(0.1)
-            upperLeft.angle = 180 - angle
+            upLeft.angle = 180 - angle
             time.sleep(0.1)
         for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
             lowLeft.angle = angle
             time.sleep(0.1)
             lowRight.angle = 180 - angle
             time.sleep(0.1)
-            upperRight.angle = angle
+            upRight.angle = angle
             time.sleep(0.1)
-            upperLeft.angle = 180 - angle
+            upLeft.angle = 180 - angle
             time.sleep(0.1)
 
         for angle in range(70, 110, 20):  # 150 - 30 degrees, 5 degrees at a time.
@@ -45,18 +46,18 @@ def dance4():
                 time.sleep(0.1)
                 lowRight.angle = 180 - angle + 10
                 time.sleep(0.1)
-                upperRight.angle = angle - 10
+                upRight.angle = angle - 10
                 time.sleep(0.1)
-                upperLeft.angle = 180 - angle + 10
+                upLeft.angle = 180 - angle + 10
                 time.sleep(0.1)
 
             lowLeft.angle = angle
             time.sleep(0.1)
             lowRight.angle = 180 - angle
             time.sleep(0.1)
-            upperRight.angle = angle
+            upRight.angle = angle
             time.sleep(0.1)
-            upperLeft.angle = 180 - angle
+            upLeft.angle = 180 - angle
             time.sleep(0.1)
 
         for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
@@ -65,18 +66,18 @@ def dance4():
                 time.sleep(0.1)
                 lowRight.angle = 180 - angle + 20
                 time.sleep(0.1)
-                upperRight.angle = angle - 20
+                upRight.angle = angle - 20
                 time.sleep(0.1)
-                upperLeft.angle = 180 - angle + 20
+                upLeft.angle = 180 - angle + 20
                 time.sleep(0.1)
 
             lowLeft.angle = angle
             time.sleep(0.15)
             lowRight.angle = 180 - angle
             time.sleep(0.15)
-            upperRight.angle = angle
+            upRight.angle = angle
             time.sleep(0.15)
-            upperLeft.angle = 180 - angle
+            upLeft.angle = 180 - angle
             time.sleep(0.15)
 
 
@@ -90,8 +91,8 @@ def dance4():
     #default position
     lowLeft.angle = 90
     lowRight.angle = 90
-    upperLeft.angle = 90
-    upperRight.angle = 90
+    upLeft.angle = 90
+    upRight.angle = 90
 
 
 dance4()
