@@ -187,37 +187,37 @@ def dance4():
 def dance6():
     while True:
         for angle in range(60, 120, 20):  # 0 - 180 degrees, 5 degrees at a time.
-            leftKnee.angle = angle
-            rightKnee.angle = 180 - angle
+            upperLeft.angle = angle
+            upperRight.angle = 180 - angle
             time.sleep(0.1)
             if (angle == 90):
-                rightFoot.angle = 130
-                leftFoot.angle = 50 
+                lowRight.angle = 130
+                lowLeft.angle = 50 
                 time.sleep(0.1)
-                rightFoot.angle = 50
-                leftFoot.angle = 130
+                lowRight.angle = 50
+                lowLeft.angle = 130
                 time.sleep(0.1)
-                rightFoot.angle = 130
-                leftFoot.angle = 50
+                lowRight.angle = 130
+                lowLeft.angle = 50
                 time.sleep(0.1)
 
         for angle in range(60, 120, -20):  # 0 - 180 degrees, 5 degrees at a time.
-            leftKnee.angle = angle
-            rightKnee.angle = angle
+            upperLeft.angle = angle
+            upperRight.angle = angle
             time.sleep(0.1)
             if (angle == 90):
-                rightFoot.angle = 130
-                leftFoot.angle = 50 
+                lowRight.angle = 130
+                lowLeft.angle = 50 
                 time.sleep(0.1)
-                rightFoot.angle = 50
-                leftFoot.angle = 130
+                lowRight.angle = 50
+                lowLeft.angle = 130
                 time.sleep(0.1)
-                rightFoot.angle = 130
-                leftFoot.angle = 50
+                lowRight.angle = 130
+                lowLeft.angle = 50
                 time.sleep(0.1)
 
-    leftKnee.angle = 90
-    rightKnee.angle = 90
+    upperLeft.angle = 90
+    upperRight.angle = 90
     time.sleep(0.1)
 
 
