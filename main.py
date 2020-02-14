@@ -21,12 +21,13 @@ upRight = servo.Servo(pwm3) #alternative name servo3
 upLeft = servo.Servo(pwm4) #alternative name servo4
 
 def dance1():
-    for angle in range(60, 120, 20):  # 30 - 150 degrees, 5 degrees at a time.
+    print("Dance 1")
+    for angle in range(70, 110, 20):  # 30 - 150 degrees, 5 degrees at a time.
         lowLeft.angle = angle
         time.sleep(0.1)
         lowRight.angle = 180 - angle
         time.sleep(0.1)
-    for angle in range(120, 60, -20):  # 150 - 30 degrees, 5 degrees at a time.
+    for angle in range(110, 60, -20):  # 150 - 30 degrees, 5 degrees at a time.
         lowLeft.angle = angle
         time.sleep(0.1)
         lowRight.angle = 180 - angle
@@ -55,6 +56,11 @@ def dance1():
         time.sleep(0.05)
 
 def dance2():
+    print("Dance 2")
+    lowLeft.angle = 90
+    lowRight.angle = 90
+    upLeft.angle = 90
+    upRight.angle = 90
     for num in range(5):
         lowLeft.angle = 60
         time.sleep(0.15)
@@ -84,34 +90,36 @@ def dance2():
         upRight.angle = 120
 
 def dance3():
+    print("Dance 3")
     lowLeft.angle = 90
     lowRight.angle = 90
     upLeft.angle = 90
     upRight.angle = 90
-    for num in range(60, 120, 20):
+    for num in range(60, 120, 10):
         if num % 40 == 0:
             lowLeft.angle = num + 20
             lowRight.angle = num - 20
-            time.sleep(0.05)
+            time.sleep(0.2)
 
         lowLeft.angle = num
         lowRight.angle = 180 - num
         upLeft.angle = num
         upRight.angle = 180 - num
-        time.sleep(0.1)
+        time.sleep(0.2)
 
-    for num in range(120, 60, -20):
+    for num in range(120, 60, -10):
         upRight.angle = num
         upLeft.angle = 180 - num
         upLeft.angle = num
         upRight.angle = 180 - num
-        time.sleep(0.05)
-        if num % 40:
+        time.sleep(0.2)
+        if num % 40 == 0:
             upRight.angle = num - 20
             upLeft.angle = num
-            time.sleep(0.1)
+            time.sleep(0.2)
 
 def dance4():
+    print("Dance 4")
     for angle in range(70, 110, 20):  # 30 - 150 degrees, 5 degrees at a time.
         lowLeft.angle = angle
         time.sleep(0.1)
@@ -172,6 +180,7 @@ def dance4():
     time.sleep(0.15)
 
 def dance5():
+    print("Dance 5")
     lowRight.angle = 60
     time.sleep(0.2)
     lowRight.angle = 120
@@ -193,41 +202,49 @@ def dance5():
     lowLeft.angle = 90
 
 def dance6():
-    for angle in range(60, 120, 10):  # 0 - 180 degrees, 5 degrees at a time.
-        upLeft.angle = angle
-        upRight.angle = 180 - angle
+    print("Dance 6")
+    count = 0
+    while count < 5:
+        lowLeft.angle = 90
+        lowRight.angle = 90
+        upLeft.angle = 90
+        upRight.angle = 90
+        for angle in range(60, 120, 10):  # 0 - 180 degrees, 5 degrees at a time.
+            upLeft.angle = angle
+            upRight.angle = 180 - angle
+            time.sleep(0.1)
+            if (angle == 90):
+                lowRight.angle = 120
+                lowLeft.angle = 60 
+                time.sleep(0.1)
+                lowRight.angle = 60
+                lowLeft.angle = 120
+                time.sleep(0.1)
+                lowRight.angle = 120
+                lowLeft.angle = 60
+                time.sleep(0.1)
+
+        for angle in range(60, 120, -10):  # 0 - 180 degrees, 5 degrees at a time.
+            upLeft.angle = angle
+            upRight.angle = angle
+            time.sleep(0.1)
+            if (angle == 90):
+                lowRight.angle = 120
+                lowLeft.angle = 60 
+                time.sleep(0.1)
+                lowRight.angle = 60
+                lowLeft.angle = 120
+                time.sleep(0.1)
+                lowRight.angle = 120
+                lowLeft.angle = 60
+                time.sleep(0.1)
+
+        upLeft.angle = 90
+        upRight.angle = 90
         time.sleep(0.1)
-        if (angle == 90):
-            lowRight.angle = 130
-            lowLeft.angle = 50 
-            time.sleep(0.1)
-            lowRight.angle = 50
-            lowLeft.angle = 130
-            time.sleep(0.1)
-            lowRight.angle = 130
-            lowLeft.angle = 50
-            time.sleep(0.1)
+        count+=1
 
-    for angle in range(60, 120, -10):  # 0 - 180 degrees, 5 degrees at a time.
-        upLeft.angle = angle
-        upRight.angle = angle
-        time.sleep(0.1)
-        if (angle == 90):
-            lowRight.angle = 130
-            lowLeft.angle = 50 
-            time.sleep(0.1)
-            lowRight.angle = 50
-            lowLeft.angle = 130
-            time.sleep(0.1)
-            lowRight.angle = 130
-            lowLeft.angle = 50
-            time.sleep(0.1)
-
-    upLeft.angle = 90
-    upRight.angle = 90
-    time.sleep(0.1)
-
-while true:
+while True:
     dance1()
     dance2()
     dance3()

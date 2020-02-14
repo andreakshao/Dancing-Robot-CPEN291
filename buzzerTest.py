@@ -133,7 +133,7 @@ shootingStarsBeats = [
 
 miiChannelNotes = [
     NOTE_FS4, NOTE_A4, NOTE_CS5, NOTE_A4, NOTE_FS4, 
-    NOTE_D4, NOTE_D4, NOTE_D4, REST, 
+    NOTE_D4, NOTE_D4, NOTE_D4, 0
 ]
 miiChannelBeats = [
     quarterNote, eighthNote, quarterNote, quarterNote, eighthNote,
