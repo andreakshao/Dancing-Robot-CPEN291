@@ -48,11 +48,41 @@ def dance3():
         if time.time() > timeout:
             lowLeft.angle = 90
             lowRight.angle = 90
-            lowLeft.angle = 90
-            lowRight.angle = 90
+            upperLeft.angle = 90
+            upperRight.angle = 90
             print("TIMED OUT")
             break
 
+def moveBackDance():
+    lowLeft.angle = 90
+    lowRight.angle = 90
+    upperLeft.angle = 90
+    upperRight.angle = 90
+    while True:
+
+        lowLeft.angle = 90
+        lowRight.angle = 90
+        upperLeft.angle = 90
+        upperRight.angle = 90
+        time.sleep(0.2)
+        upperLeft.angle = 110
+        upperRight.angle = 70
+        time.sleep(0.05)
+        lowLeft.angle = 110
+        lowRight.angle = 70
+        time.sleep(0.1)
+
+        if time.time() > timeout:
+            lowLeft.angle = 90
+            lowRight.angle = 90
+            upperLeft.angle = 90
+            upperRight.angle = 90
+            print("TIMED OUT")
+            break
+
+
+def moveForwardDance():
+    return
 
 dance3()
 
