@@ -26,18 +26,18 @@ def dance4():
             time.sleep(0.1)
             lowRight.angle = 180 - angle
             time.sleep(0.1)
-            upperRight.angle = angle
+            upRight.angle = angle
             time.sleep(0.1)
-            upperLeft.angle = 180 - angle
+            upLeft.angle = 180 - angle
             time.sleep(0.1)
         for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
             lowLeft.angle = angle
             time.sleep(0.1)
             lowRight.angle = 180 - angle
             time.sleep(0.1)
-            upperRight.angle = angle
+            upRight.angle = angle
             time.sleep(0.1)
-            upperLeft.angle = 180 - angle
+            upLeft.angle = 180 - angle
             time.sleep(0.1)
 
         for angle in range(70, 110, 20):  # 150 - 30 degrees, 5 degrees at a time.
@@ -46,18 +46,18 @@ def dance4():
                 time.sleep(0.1)
                 lowRight.angle = 180 - angle + 10
                 time.sleep(0.1)
-                upperRight.angle = angle - 10
+                upRight.angle = angle - 10
                 time.sleep(0.1)
-                upperLeft.angle = 180 - angle + 10
+                upLeft.angle = 180 - angle + 10
                 time.sleep(0.1)
 
             lowLeft.angle = angle
             time.sleep(0.1)
             lowRight.angle = 180 - angle
             time.sleep(0.1)
-            upperRight.angle = angle
+            upRight.angle = angle
             time.sleep(0.1)
-            upperLeft.angle = 180 - angle
+            upLeft.angle = 180 - angle
             time.sleep(0.1)
 
         for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
@@ -66,18 +66,18 @@ def dance4():
                 time.sleep(0.1)
                 lowRight.angle = 180 - angle + 20
                 time.sleep(0.1)
-                upperRight.angle = angle - 20
+                upRight.angle = angle - 20
                 time.sleep(0.1)
-                upperLeft.angle = 180 - angle + 20
+                upLeft.angle = 180 - angle + 20
                 time.sleep(0.1)
 
             lowLeft.angle = angle
             time.sleep(0.15)
             lowRight.angle = 180 - angle
             time.sleep(0.15)
-            upperRight.angle = angle
+            upRight.angle = angle
             time.sleep(0.15)
-            upperLeft.angle = 180 - angle
+            upLeft.angle = 180 - angle
             time.sleep(0.15)
 
 
@@ -91,8 +91,8 @@ def dance4():
     #default position
     lowLeft.angle = 90
     lowRight.angle = 90
-    upperLeft.angle = 90
-    upperRight.angle = 90
+    upLeft.angle = 90
+    upRight.angle = 90
 
 
 dance4()
