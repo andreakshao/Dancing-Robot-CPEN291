@@ -1,7 +1,18 @@
-import board
-
 import simpleio
+import time
+import board
+import pulseio
+from adafruit_motor import servo
 
+pwm1 = pulseio.PWMOut(board.D13, duty_cycle=2 ** 15, frequency = 50)
+pwm2 = pulseio.PWMOut(board.D12, duty_cycle=2 ** 15, frequency = 50)
+pwm3 = pulseio.PWMOut(board.D10, duty_cycle=2 ** 15, frequency = 50)
+pwm4 = pulseio.PWMOut(board.D5, duty_cycle=2 ** 15, frequency=  50)
+
+lowLeft = servo.Servo(pwm1)
+lowRight = servo.Servo(pwm2)
+upperRight = servo.Servo(pwm3)
+upperLeft = servo.Servo(pwm4)
 
 # Define pin connected to piezo buzzer.
 PIEZO_PIN = board.A1
@@ -131,25 +142,17 @@ shootingStarsBeats = [
     quarterNote+eighthNote, sixteenthNote, sixteenthNote, eighthNote, eighthNote, eighthNote, eighthNote
     ]
 
-miiChannelNotes = [
-    NOTE_FS5, NOTE_A5, NOTE_CS6, NOTE_A5, NOTE_FS5, 
-    NOTE_D5, NOTE_D5, NOTE_D5, 0, NOTE_CS5,
-    NOTE_D5, NOTE_FS5, NOTE_A5, NOTE_CS6, NOTE_A5, NOTE_FS5,
-    NOTE_E6, NOTE_DS6, NOTE_D6, 0,
-    NOTE_GS5, 0, NOTE_CS6, NOTE_FS5, 0, NOTE_CS6, 0, NOTE_GS5, 
-    0, NOTE_CS6, 0, NOTE_A5, NOTE_FS5, 0, NOTE_E5, 0
-]
-miiChannelBeats = [
-    quarterNote, eighthNote, quarterNote, quarterNote, eighthNote,
-    eighthNote, eighthNote, eighthNote, halfNote, eighthNote,
-    eighthNote, eighthNote, eighthNote, quarterNote, quarterNote, eighthNote, 
-    quarterNote, eighthNote, eighthNote, quarterNote+eighthNote, 
-    eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote,
-    eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote 
-]
 
 # Main loop will go through each tone in order up and down.
+num = 0
 while True:
     # Play tones going from start to end of list.
+    num = 1
     for index in range(0, len(shootingStarsBeats), 1):
+        if num == 1:
+            lowRight.angle = 90
+            num = 0
+        else:
+            lowRight.angle = 110
+            num = 1
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
