@@ -9,16 +9,16 @@ import board
 import pulseio
 
 # For the M4 boards:
-# piezo = pulseio.PWMOut(board.A1, duty_cycle=0, frequency=440, variable_frequency=True)
+piezo = pulseio.PWMOut(board.A1, duty_cycle=0, frequency=440, variable_frequency=True)
  
 #Experimental Code to test making different notes
-# ON = (2**15)
-# OFF = 0
-# c = 262
-# d = 294
-# e = 330
-# f = 349
-# notes = [c, c, d, c, f, e]
+ON = (2**15)
+OFF = 0
+c = 262
+d = 294
+e = 330
+f = 349
+notes = [c, c, d, c, f, e]
 
 # Release any resources currently in use for the displays
 displayio.release_displays()
