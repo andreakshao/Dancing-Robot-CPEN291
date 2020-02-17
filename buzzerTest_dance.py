@@ -146,13 +146,35 @@ shootingStarsBeats = [
 # Main loop will go through each tone in order up and down.
 num = 0
 while True:
+    lowRight.angle = 90
+    lowLeft.angle = 90
+    upperRight.angle = 90
+    upperLeft.angle = 90
+
     # Play tones going from start to end of list.
     num = 1
     for index in range(0, len(shootingStarsBeats), 1):
         if num == 1:
-            lowRight.angle = 90
-            num = 0
-        else:
+            lowRight.angle = 70
+            lowLeft.angle = 110
+            num += 1
+        elif num == 2:
+            lowRight.angle = 70
+            lowLeft.angle = 110
+            num += 1
+        elif num == 3:
+            lowRight.angle = 70
+            lowLeft.angle = 110
+            upperRight.angle = 80
+            upperLeft.angle = 100
+            num += 1
+        elif num == 4:
             lowRight.angle = 110
+            lowLeft.angle = 70
+            upperRight.angle = 100
+            upperLeft.angle = 80
+            num += 1
+        else:
             num = 1
+
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
