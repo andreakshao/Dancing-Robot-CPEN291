@@ -1,9 +1,9 @@
 #If we are allowed to use this additional library
 #import time
 #import board
-#import adafruit_hcsr04
+import adafruit_hcsr04
 #Change the pins
-#sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.D5, echo_pin=board.D6)
+sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.A3, echo_pin=board.A4)
 #Use this to check the distance
 #sonar.distance
 
@@ -130,6 +130,11 @@ def miiProgram():
     while 1:
         for index in range(0, len(miiChannelNotes), 1):
             simpleio.tone(PIEZO_PIN, miiChannelNotes[index], duration=miiChannelBeats[index])
-            if (sonar.distance > SOMEDISTANCEWEHAVETOSET):
-                return 0
+            try:
+                print((sonar.distance))
+                if (sonar.distance < 3):
+                    return 0
+            except RuntimeError:
+                print("Retrying!")
+            time.sleep(0.1)
         

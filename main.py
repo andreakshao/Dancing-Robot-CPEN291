@@ -149,6 +149,36 @@ shootingStarsBeats = [
     quarterNote+eighthNote, sixteenthNote, sixteenthNote, eighthNote, eighthNote, eighthNote, eighthNote
     ]
 
+miiChannelNotes = [
+    NOTE_FS5, NOTE_A5, NOTE_CS6, NOTE_A5, NOTE_FS5, 
+    NOTE_D5, NOTE_D5, NOTE_D5, 0, NOTE_CS5,
+    NOTE_D5, NOTE_FS5, NOTE_A5, NOTE_CS6, NOTE_A5, NOTE_FS5,
+    NOTE_E6, NOTE_DS6, NOTE_D6, 0,
+    NOTE_GS5, 0, NOTE_CS6, NOTE_FS5, 0, NOTE_CS6, 0, NOTE_GS5, 
+    0, NOTE_CS6, 0, NOTE_A5, NOTE_FS5, 0, NOTE_E5, 0
+]
+miiChannelBeats = [
+    quarterNote, eighthNote, quarterNote, quarterNote, eighthNote,
+    eighthNote, eighthNote, eighthNote, halfNote, eighthNote,
+    eighthNote, eighthNote, eighthNote, quarterNote, quarterNote, eighthNote, 
+    quarterNote, eighthNote, eighthNote, quarterNote+eighthNote, 
+    eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote,
+    eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote 
+]
+
+def miiProgram():
+    while 1:
+        for index in range(0, len(miiChannelNotes), 1):
+            simpleio.tone(PIEZO_PIN, miiChannelNotes[index], duration=miiChannelBeats[index])
+            try:
+                print((sonar.distance))
+                if (sonar.distance < 3):
+                    return 0
+            except RuntimeError:
+                print("Retrying!")
+            time.sleep(0.1)
+        
+
 index = 0
 def dance1():
     global index
