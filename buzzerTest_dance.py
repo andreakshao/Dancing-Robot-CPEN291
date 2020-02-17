@@ -142,7 +142,7 @@ shootingStarsBeats = [
     quarterNote+eighthNote, sixteenthNote, sixteenthNote, eighthNote, eighthNote, eighthNote, eighthNote
     ]
 
-timeout = time.time() + 30   # 30 seconds each minutes from now
+timeout = time.time() + 10   # 30 seconds each minutes from now
 
 index = 0
 
@@ -244,7 +244,7 @@ def new_dance2():
             lowRight.angle = 90
             upperLeft.angle = 90
             upperRight.angle = 90
-            break
+            break #or return
 
 new_dance1()
 timeout = time.time() + 30
