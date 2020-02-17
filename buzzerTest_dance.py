@@ -159,8 +159,8 @@ while True:
             lowLeft.angle = 110
             num += 1
         elif num == 2:
-            lowRight.angle = 70
-            lowLeft.angle = 110
+            lowRight.angle = 110
+            lowLeft.angle = 70
             num += 1
         elif num == 3:
             lowRight.angle = 70
