@@ -22,7 +22,7 @@ lowRight = servo.Servo(pwm2) #alternative name servo2
 upRight = servo.Servo(pwm3) #alternative name servo3
 upLeft = servo.Servo(pwm4) #alternative name servo4
 
-sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.A4, echo_pin=board.A3)
+sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.D3, echo_pin=board.D4)
 
 # Define pin connected to piezo buzzer.
 PIEZO_PIN = board.A1
@@ -211,12 +211,6 @@ def dance1():
         lowLeft.angle = angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
-        try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
-                miiProgram()
-        except RuntimeError:
-            print("Retrying!")
         lowRight.angle = 180 - angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
@@ -230,12 +224,6 @@ def dance1():
         upLeft.angle = angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
-        try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
-                miiProgram()
-        except RuntimeError:
-            print("Retrying!")
         upRight.angle = 180 - angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
@@ -249,12 +237,6 @@ def dance1():
         upLeft.angle = angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
-        try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
-                miiProgram()
-        except RuntimeError:
-            print("Retrying!")
         upRight.angle = 180 - angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
@@ -288,12 +270,6 @@ def dance2():
         lowLeft.angle = 120
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
-        try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
-                miiProgram()
-        except RuntimeError:
-            print("Retrying!")
         lowLeft.angle = 60
     lowLeft.angle = 90
     for num in range(5):
@@ -309,12 +285,6 @@ def dance2():
         upLeft.angle = 120
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
-        try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
-                miiProgram()
-        except RuntimeError:
-            print("Retrying!")
         upLeft.angle = 60
 
     for num in range(5):
@@ -330,12 +300,6 @@ def dance2():
         lowRight.angle = 60
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
-        try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
-                miiProgram()
-        except RuntimeError:
-            print("Retrying!")
         lowRight.angle = 120
     lowRight.angle = 90
     for num in range(5):
@@ -351,12 +315,6 @@ def dance2():
         upRight.angle = 60
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
-        try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
-                miiProgram()
-        except RuntimeError:
-            print("Retrying!")
         upRight.angle = 120
 
 def dance3():
@@ -440,12 +398,6 @@ def dance4():
         lowRight.angle = 180 - angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
-        try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
-                 miiProgram()
-        except RuntimeError:
-            print("Retrying!")
         upRight.angle = angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
@@ -458,12 +410,6 @@ def dance4():
         upLeft.angle = 180 - angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
-        try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
-                 miiProgram()
-        except RuntimeError:
-            print("Retrying!")
     for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
         lowLeft.angle = angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
@@ -477,12 +423,6 @@ def dance4():
         lowRight.angle = 180 - angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
-        try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
-                 miiProgram()
-        except RuntimeError:
-            print("Retrying!")
         upRight.angle = angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
@@ -495,12 +435,6 @@ def dance4():
         upLeft.angle = 180 - angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
-        try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
-                miiProgram()
-        except RuntimeError:
-            print("Retrying!")
 
     for angle in range(70, 110, 20):  # 150 - 30 degrees, 5 degrees at a time.
         if angle % 90 == 0:
@@ -516,12 +450,6 @@ def dance4():
             lowRight.angle = 180 - angle + 10
             simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
             index = index + 1
-            try:
-                print((sonar.distance))
-                if (sonar.distance < 4):
-                    miiProgram()
-            except RuntimeError:
-                print("Retrying!")
             upRight.angle = angle - 10
             simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
             index = index + 1
@@ -534,12 +462,6 @@ def dance4():
             upLeft.angle = 180 - angle + 10
             simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
             index = index + 1
-            try:
-                print((sonar.distance))
-                if (sonar.distance < 4):
-                    miiProgram()
-            except RuntimeError:
-                print("Retrying!")
 
         lowLeft.angle = angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
@@ -553,12 +475,6 @@ def dance4():
         lowRight.angle = 180 - angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
-        try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
-                miiProgram()
-        except RuntimeError:
-            print("Retrying!")
         upRight.angle = angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
@@ -571,12 +487,6 @@ def dance4():
         upLeft.angle = 180 - angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
-        try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
-                miiProgram()
-        except RuntimeError:
-            print("Retrying!")
 
     for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
         if angle % 90 == 0:
@@ -590,12 +500,6 @@ def dance4():
                 print("Retrying!")
             lowRight.angle = 180 - angle + 20
             time.sleep(0.1)
-            try:
-                print((sonar.distance))
-                if (sonar.distance < 4):
-                    miiProgram()
-            except RuntimeError:
-                print("Retrying!")
             upRight.angle = angle - 20
             time.sleep(0.1)
             try:
@@ -606,12 +510,6 @@ def dance4():
                 print("Retrying!")
             upLeft.angle = 180 - angle + 20
             time.sleep(0.1)
-            try:
-                print((sonar.distance))
-                if (sonar.distance < 4):
-                    miiProgram()
-            except RuntimeError:
-                print("Retrying!")
 
     lowLeft.angle = angle
     simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
@@ -625,12 +523,6 @@ def dance4():
     lowRight.angle = 180 - angle
     simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
     index = index + 1
-    try:
-        print((sonar.distance))
-        if (sonar.distance < 4):
-            miiProgram()
-    except RuntimeError:
-        print("Retrying!")
     upRight.angle = angle
     simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
     index = index + 1
@@ -643,12 +535,6 @@ def dance4():
     upLeft.angle = 180 - angle
     simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
     index = index + 1
-    try:
-        print((sonar.distance))
-        if (sonar.distance < 4):
-            miiProgram()
-    except RuntimeError:
-        print("Retrying!")
 
 def dance5():
     global index
@@ -668,12 +554,6 @@ def dance5():
     lowRight.angle = 120
     simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
     index = index + 1
-    try:
-        print((sonar.distance))
-        if (sonar.distance < 4):
-            miiProgram()
-    except RuntimeError:
-        print("Retrying!")
     lowRight.angle = 60
     simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
     index = index + 1
@@ -686,14 +566,9 @@ def dance5():
     lowRight.angle = 120
     simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
     index = index + 1
-    try:
-        print((sonar.distance))
-        if (sonar.distance < 4):
-            miiProgram()
-    except RuntimeError:
-        print("Retrying!")
     lowRight.angle = 90
-            
+    simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+    index = index + 1      
     lowLeft.angle = 60
     simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
     index = index + 1
@@ -706,12 +581,6 @@ def dance5():
     lowLeft.angle = 120
     simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
     index = index + 1
-    try:
-        print((sonar.distance))
-        if (sonar.distance < 4):
-            miiProgram()
-    except RuntimeError:
-        print("Retrying!")
     lowLeft.angle = 60
     simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
     index = index + 1
@@ -724,12 +593,6 @@ def dance5():
     lowLeft.angle = 120
     simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
     index = index + 1
-    try:
-        print((sonar.distance))
-        if (sonar.distance < 4):
-            miiProgram()
-    except RuntimeError:
-        print("Retrying!")
     lowLeft.angle = 90
 
 def dance6():
@@ -761,11 +624,6 @@ def dance6():
                 simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
                 index = index + 1
                 try:
-                    print((sonar.distance))
-                    if (sonar.distance < 4):
-                        miiProgram()
-                except RuntimeError:
-                    print("Retrying!")
                 lowRight.angle = 60
                 lowLeft.angle = 120
                 simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
@@ -780,12 +638,6 @@ def dance6():
                 lowLeft.angle = 60
                 simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
                 index = index + 1
-                try:
-                    print((sonar.distance))
-                    if (sonar.distance < 4):
-                        miiProgram()
-                except RuntimeError:
-                    print("Retrying!")
 
         for angle in range(60, 120, -10):  # 0 - 180 degrees, 5 degrees at a time.
             upLeft.angle = angle
@@ -803,12 +655,6 @@ def dance6():
                 lowLeft.angle = 60 
                 simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
                 index = index + 1
-                try:
-                    print((sonar.distance))
-                    if (sonar.distance < 4):
-                        miiProgram()
-                except RuntimeError:
-                    print("Retrying!")
                 lowRight.angle = 60
                 lowLeft.angle = 120
                 simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
@@ -823,12 +669,6 @@ def dance6():
                 lowLeft.angle = 60
                 simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
                 index = index + 1
-                try:
-                    print((sonar.distance))
-                    if (sonar.distance < 4):
-                        miiProgram()
-                except RuntimeError:
-                    print("Retrying!")
 
         upLeft.angle = 90
         upRight.angle = 90
