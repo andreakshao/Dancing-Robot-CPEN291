@@ -3,22 +3,8 @@ import displayio
 import terminalio
 from adafruit_display_text import label
 from adafruit_st7735r import ST7735R
-
 from time import sleep
-import board
-import pulseio
 
-# For the M4 boards:
-piezo = pulseio.PWMOut(board.A1, duty_cycle=0, frequency=440, variable_frequency=True)
- 
-#Experimental Code to test making different notes
-ON = (2**15)
-OFF = 0
-c = 262
-d = 294
-e = 330
-f = 349
-notes = [c, c, d, c, f, e]
 
 # Release any resources currently in use for the displays
 displayio.release_displays()
@@ -55,15 +41,8 @@ splash.append(inner_sprite)
 
 # Draw a label
 text = "Hello World!"
-text_area = label.Label(terminalio.FONT, text=text, color=0xFFFF00, x=10, y=10)
+text_area = label.Label(terminalio.FONT, text=text, color=0xFFFF00, x=50, y=50)
 splash.append(text_area)
 
 while True:
-    pass
     sleep(1)
-    for f in notes:
-        piezo.frequency = f
-        piezo.duty_cycle = ON
-        sleep(0.3)
-        piezo.duty_cycle = OFF
-        sleep(0.3)
