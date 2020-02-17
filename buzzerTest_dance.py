@@ -142,8 +142,11 @@ shootingStarsBeats = [
     quarterNote+eighthNote, sixteenthNote, sixteenthNote, eighthNote, eighthNote, eighthNote, eighthNote
     ]
 
+timeout = time.time() + 60*5   # 5 minutes from now
 
+index = 0
 def dance1():
+    global index
     # Main loop will go through each tone in order up and down.
     num = 0
     while True:
@@ -208,3 +211,103 @@ def dance1():
         lowLeft.angle = 90
         upperRight.angle = 90
         upperLeft.angle = 90
+
+def dance4():
+    global index
+    while True:
+        for angle in range(70, 110, 20):  # 30 - 150 degrees, 5 degrees at a time.
+            lowLeft.angle = angle
+            index = index + 1
+            simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+            lowRight.angle = 180 - angle
+            index = index + 1
+            simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+            upperRight.angle = angle
+            index = index + 1
+            simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+            upperLeft.angle = 180 - angle
+            index = index + 1
+            simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+        for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
+            lowLeft.angle = angle
+            index = index + 1
+            simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+            lowRight.angle = 180 - angle
+            index = index + 1
+            simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+            upperRight.angle = angle
+            index = index + 1
+            simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+            upperLeft.angle = 180 - angle
+            index = index + 1
+            simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+
+        for angle in range(70, 110, 20):  # 150 - 30 degrees, 5 degrees at a time.
+            if angle % 90 == 0:
+                lowLeft.angle = angle - 10
+                index = index + 1
+                simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+                lowRight.angle = 180 - angle + 10
+                index = index + 1
+                simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+                upperRight.angle = angle - 10
+                index = index + 1
+                simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+                upperLeft.angle = 180 - angle + 10
+                index = index + 1
+                simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+
+            lowLeft.angle = angle
+            index = index + 1
+            simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+            lowRight.angle = 180 - angle
+            index = index + 1
+            simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+            upperRight.angle = angle
+            index = index + 1
+            simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+            upperLeft.angle = 180 - angle
+            index = index + 1
+            simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+
+        for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
+            if angle % 90 == 0:
+                lowLeft.angle = angle - 20
+                index = index + 1
+                simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+                lowRight.angle = 180 - angle + 20
+                index = index + 1
+                simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+                upperRight.angle = angle - 20
+                index = index + 1
+                simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+                upperLeft.angle = 180 - angle + 20
+                index = index + 1
+                simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+
+            lowLeft.angle = angle
+            index = index + 1
+            simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+            lowRight.angle = 180 - angle
+            index = index + 1
+            simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+            upperRight.angle = angle
+            index = index + 1
+            simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+            upperLeft.angle = 180 - angle
+            index = index + 1
+            simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+
+        if time.time() > timeout:
+            print("BREAK")
+            break
+
+        """
+        if some command break
+        """
+    #default position
+    lowLeft.angle = 90
+    lowRight.angle = 90
+    upperLeft.angle = 90
+    upperRight.angle = 90
+
