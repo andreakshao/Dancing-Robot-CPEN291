@@ -16,23 +16,24 @@ lowRight = servo.Servo(pwm2)
 upRight = servo.Servo(pwm3)
 upLeft = servo.Servo(pwm4)
 
-def dance8():
+timeout = time.time() + 60*5   # 5 minutes from now
+
+def dance9():
+    # center the feet and knees
     lowLeft.angle = 90
     lowRight.angle = 90
-    while true:
-        upRight.angle = 60
-        upLeft.angle = 60
-        time.sleep(0.2)
-        upLeft.angle = 120
-        upRight.angle = 120
-        time.sleep(0.6)
-        upRight.angle = 60
-        upLeft.angle = 60
-        time.sleep(0.2)
-        upRight.angle = 120
-        upLeft.angle = 120
-        time.sleep(0.2)
-        upRight.angle = 60
-        upLeft.angle = 60
-        
-dance8()
+    upLeft.angle = 90
+    upRight.angle = 90
+    while True:
+        for num in range(5):
+            lowLeft.angle = 60
+            time.sleep(0.1)
+            lowRight.angle = 60
+            time.sleep(0.2)
+            lowLeft.angle = 120
+            time.sleep(0.1)
+            lowRight.angle = 120
+            time.sleep(0.2)
+        lowLeft.angle = 90
+        lowRight.angle = 90
+dance9()
