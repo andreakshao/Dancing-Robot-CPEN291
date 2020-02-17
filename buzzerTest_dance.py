@@ -190,7 +190,8 @@ def new_dance1():
             lowRight.angle = 90
             upperLeft.angle = 90
             upperRight.angle = 90
-            return
+            #return
+            break
 
 def new_dance2():
     global index
@@ -243,7 +244,7 @@ def new_dance2():
             lowRight.angle = 90
             upperLeft.angle = 90
             upperRight.angle = 90
-            return
+            break
 
 new_dance1()
 timeout = time.time() + 30
