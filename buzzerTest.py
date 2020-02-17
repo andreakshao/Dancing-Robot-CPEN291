@@ -131,6 +131,22 @@ shootingStarsBeats = [
     quarterNote+eighthNote, sixteenthNote, sixteenthNote, eighthNote, eighthNote, eighthNote, eighthNote
     ]
 
+miiChannelNotes = [
+    NOTE_FS5, NOTE_A5, NOTE_CS6, NOTE_A5, NOTE_FS5, 
+    NOTE_D5, NOTE_D5, NOTE_D5, 0, NOTE_CS5,
+    NOTE_D5, NOTE_FS5, NOTE_A5, NOTE_CS6, NOTE_A5, NOTE_FS5,
+    NOTE_E6, NOTE_DS6, NOTE_D6, 0,
+    NOTE_GS5, 0, NOTE_CS6, NOTE_FS5, 0, NOTE_CS6, 0, NOTE_GS5, 
+    0, NOTE_CS6, 0, NOTE_A5, NOTE_FS5, 0, NOTE_E5, 0
+]
+miiChannelBeats = [
+    quarterNote, eighthNote, quarterNote, quarterNote, eighthNote,
+    eighthNote, eighthNote, eighthNote, halfNote, eighthNote,
+    eighthNote, eighthNote, eighthNote, quarterNote, quarterNote, eighthNote, 
+    quarterNote, eighthNote, eighthNote, quarterNote+eighthNote, 
+    eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote,
+    eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote 
+]
 
 # Main loop will go through each tone in order up and down.
 while True:
