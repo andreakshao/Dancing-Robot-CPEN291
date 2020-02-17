@@ -23,3 +23,11 @@ def distance():
         upRight.angle = 90
         distance()
         
+#If we are allowed to use this additional library
+#import time
+#import board
+#import adafruit_hcsr04
+#Change the pins
+#sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.D5, echo_pin=board.D6)
+#Use this to check the distance
+#sonar.distance
