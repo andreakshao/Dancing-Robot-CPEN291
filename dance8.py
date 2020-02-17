@@ -17,18 +17,22 @@ upRight = servo.Servo(pwm3)
 upLeft = servo.Servo(pwm4)
 
 def dance8():
-    for angle in range(60, 120, 30):
-        upRight.angle = angle
-        upLeft.angle = angle
-        time.sleep(0.1)
-    for angle in range(120, 60, -30):
-        upLeft.angle = angle
-        upRight.angle = angle
+    lowLeft.angle = 90
+    lowRight.angle = 90
+    while true:
+        upRight.angle = 60
+        upLeft.angle = 60
         time.sleep(0.2)
-
-    
-
-    
+        upLeft.angle = 120
+        upRight.angle = 120
+        time.sleep(0.6)
+        upRight.angle = 60
+        upLeft.angle = 60
+        time.sleep(0.2)
+        upRight.angle = 120
+        upLeft.angle = 120
+        time.sleep(0.2)
+        upRight.angle = 60
+        upLeft.angle = 60
         
-
 dance8()
