@@ -142,78 +142,117 @@ shootingStarsBeats = [
     quarterNote+eighthNote, sixteenthNote, sixteenthNote, eighthNote, eighthNote, eighthNote, eighthNote
     ]
 
-timeout = time.time() + 30   # 30 seconds each minutes from now
+timeout = time.time() + 10   # 30 seconds each minutes from now
 
 index = 0
-def dance1():
+
+def new_dance1():
     global index
-    # Main loop will go through each tone in order up and down.
-    lowRight.angle = 90
-    lowLeft.angle = 90
-    upperRight.angle = 90
-    upperLeft.angle = 90
-    num = 0
-    while True:
 
-        # Play tones going from start to end of list.
-        num = 1
-        if num == 1:
-            lowRight.angle = 70
-            lowLeft.angle = 110
-            num += 1
-        elif num == 2:
-            lowRight.angle = 110
-            lowLeft.angle = 70
-            num += 1
-         elif num == 3:
-            lowRight.angle = 70
-            lowLeft.angle = 110
-            upperRight.angle = 80
-            upperLeft.angle = 100
-            num += 1
-        elif num == 4:
-            lowRight.angle = 110
-            lowLeft.angle = 70
-            upperRight.angle = 100
-            upperLeft.angle = 80
-            num += 1
-        elif num == 5:
-            lowRight.angle = 90
-            lowLeft.angle = 90
-            upperRight.angle = 130
-            upperLeft.angle = 50
-            num += 1
-        elif num == 6:
-            lowRight.angle = 90
-            lowLeft.angle = 90
-            upperRight.angle = 50
-            upperLeft.angle = 130
-            num += 1
-        elif num == 7:
-            lowRight.angle = 110
-            lowLeft.angle = 80
-            upperRight.angle = 90
-            upperLeft.angle = 90
-            num += 1
-        elif num == 8:
-            lowRight.angle = 80
-            lowLeft.angle = 110
-            upperRight.angle = 90
-            upperLeft.angle = 90
-            num += 1
-        else:
-            num = 1
-
+    while index < len(shootingStarsBeats):
+        lowLeft.angle = 90
+        lowRight.angle = 90
+        upperLeft.angle = 90
+        upperRight.angle = 90
+        #first part of dance
+        lowLeft.angle = 120
+        lowRight.angle = 60
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
-        if time.time() > timeout:
-            print("BREAK")
+        index = index + 1
+        if index == len(shootingStarsBeats):
+            index = 0
+
+        lowLeft.angle = 60
+        lowRight.angle = 120
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+        index = index + 1
+        if index == len(shootingStarsBeats):
+            index = 0
+
+        lowLeft.angle = 90
+        lowRight.angle = 90
+        upperLeft.angle = 120
+        upperRight.angle = 60
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+        index = index + 1
+        if index == len(shootingStarsBeats):
+            index = 0
+
+        upperLeft.angle = 60
+        upperRight.angle = 120
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+        index = index + 1
+        if index == len(shootingStarsBeats):
+            index = 0
+
+        if time.time() > timeout: #or other conditions, example (if distance read)
+            lowLeft.angle = 90
+            lowRight.angle = 90
+            upperLeft.angle = 90
+            upperRight.angle = 90
+            #return
             break
 
-    lowRight.angle = 90
-    lowLeft.angle = 90
-    upperRight.angle = 90
-    upperLeft.angle = 90
+def new_dance2():
+    global index
 
+    while index < len(shootingStarsBeats):
+        lowLeft.angle = 90
+        lowRight.angle = 90
+        upperLeft.angle = 90
+        upperRight.angle = 90
+
+        #first part of dance
+        lowLeft.angle = 100
+        upperLeft.angle = 120
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+        index = index + 1
+        if index == len(shootingStarsBeats):
+            index = 0
+
+        lowLeft.angle = 80
+        upperLeft.angle = 60
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+        index = index + 1
+        if index == len(shootingStarsBeats):
+            index = 0
+
+
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+        index = index + 1
+        if index == len(shootingStarsBeats):
+            index = 0
+
+        lowLeft.angle = 90
+        upperLeft.angle = 90
+        lowRight.angle = 100
+        upperRight.angle = 120
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+        index = index + 1
+        if index == len(shootingStarsBeats):
+            index = 0
+
+        lowRight.angle = 80
+        upperRight.angle = 60
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+        index = index + 1
+        if index == len(shootingStarsBeats):
+            index = 0
+
+        if time.time() > timeout: #or other conditions, example (if distance read)
+            lowLeft.angle = 90
+            lowRight.angle = 90
+            upperLeft.angle = 90
+            upperRight.angle = 90
+            break #or return
+
+new_dance1()
+timeout = time.time() + 30
+new_dance2()
+
+
+
+"""
 def dance4():
     global index
     while True:
@@ -248,9 +287,9 @@ def dance4():
             print("BREAK")
             return
 
-        """
-        if some command break
-        """
+
+        #if some command break
+
     #default position
     lowLeft.angle = 90
     lowRight.angle = 90
@@ -328,8 +367,7 @@ def dance5():
             print("BREAK")
             return
 
-dance1()
-timeout = time.time() + 30
 dance4()
 timeout = time.time() + 30
 dance5()
+"""

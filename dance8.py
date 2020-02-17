@@ -16,10 +16,19 @@ lowRight = servo.Servo(pwm2)
 upRight = servo.Servo(pwm3)
 upLeft = servo.Servo(pwm4)
 
-timeout = time.time() + 60*5   # 5 minutes from now
+def dance8():
+    for angle in range(60, 120, 30):
+        upRight.angle = angle
+        upLeft.angle = angle
+        time.sleep(0.1)
+    for angle in range(120, 60, -30):
+        upLeft.angle = angle
+        upRight.angle = angle
+        time.sleep(0.2)
 
-def dance7():
+    
+
     
         
 
-dance7()
+dance8()
