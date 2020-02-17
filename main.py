@@ -182,9 +182,8 @@ def miiProgram():
 index = 0
 def dance1():
     global index
-    if (index >= len(shootingStarsBeats) - 10) {
-        index = 0;
-    }
+    index = 0
+    
     print("Dance 1")
     for angle in range(70, 110, 20):  # 30 - 150 degrees, 5 degrees at a time.
         lowLeft.angle = angle
@@ -217,9 +216,9 @@ def dance1():
 
 def dance2():
     global index
-    if (index >= len(shootingStarsBeats) - 10) {
-        index = 0;
-    }
+    if (index >= len(shootingStarsBeats) - 10):
+        index = 0
+    
     print("Dance 2")
     lowLeft.angle = 90
     lowRight.angle = 90
@@ -263,9 +262,9 @@ def dance2():
 
 def dance3():
     global index
-    if (index >= len(shootingStarsBeats) - 10) {
-        index = 0;
-    }
+    if (index >= len(shootingStarsBeats) - 10):
+        index = 0
+    
     print("Dance 3")
     lowLeft.angle = 90
     lowRight.angle = 90
@@ -301,9 +300,9 @@ def dance3():
 
 def dance4():
     global index
-    if (index >= len(shootingStarsBeats) - 10) {
-        index = 0;
-    }
+    if (index >= len(shootingStarsBeats) - 20):
+        index = 0
+    
     print("Dance 4")
     for angle in range(70, 110, 20):  # 30 - 150 degrees, 5 degrees at a time.
         lowLeft.angle = angle
@@ -386,9 +385,9 @@ def dance4():
 
 def dance5():
     global index
-    if (index >= len(shootingStarsBeats) - 10) {
-        index = 0;
-    }
+    if (index >= len(shootingStarsBeats) - 10):
+        index = 0
+    
     print("Dance 5")
     lowRight.angle = 60
     simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
@@ -420,12 +419,12 @@ def dance5():
 
 def dance6():
     global index
-    if (index >= len(shootingStarsBeats) - 10) {
-        index = 0;
-    }
+    if (index >= len(shootingStarsBeats) - 10):
+        index = 0
+    
     print("Dance 6")
     count = 0
-    while count < 5:
+    while count < 3:
         lowLeft.angle = 90
         lowRight.angle = 90
         upLeft.angle = 90
