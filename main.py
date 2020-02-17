@@ -7,6 +7,7 @@ import time
 import pulseio
 from adafruit_motor import servo
 import simpleio
+import adafruit_hcsr04
 
 # create a PWMOut object on Pin A2.
 # can change inputs board.A1 etc.
@@ -20,6 +21,8 @@ lowLeft = servo.Servo(pwm1) #alternative name servo1
 lowRight = servo.Servo(pwm2) #alternative name servo2
 upRight = servo.Servo(pwm3) #alternative name servo3
 upLeft = servo.Servo(pwm4) #alternative name servo4
+
+sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.A4, echo_pin=board.A3)
 
 # Define pin connected to piezo buzzer.
 PIEZO_PIN = board.A1
