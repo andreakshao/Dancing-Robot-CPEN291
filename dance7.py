@@ -19,7 +19,7 @@ upLeft = servo.Servo(pwm4)
 timeout = time.time() + 60*5   # 5 minutes from now
 
 def dance7():
-    while True:
+    
         
 
 dance7()
