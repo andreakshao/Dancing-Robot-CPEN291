@@ -24,6 +24,28 @@ upLeft = servo.Servo(pwm4) #alternative name servo4
 
 sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.D3, echo_pin=board.D4)
 
+# Release any resources currently in use for the displays
+displayio.release_displays()
+
+spi = board.SPI()
+tft_cs = board.D11
+tft_dc = board.D9
+
+display_bus = displayio.FourWire(spi, command=tft_dc, chip_select=tft_cs, reset=board.D7)
+display = ST7735R(display_bus, width=128, height=128)
+
+# Make the display context
+splash = displayio.Group(max_size=20)
+my_label = label.Label(terminalio.FONT, text="My Label Text", color=0xFFFFFF, x = 40, y = 40)
+splash.append(my_label)
+display.show(splash)
+
+text = "Hello world"
+text_area = label.Label(terminalio.FONT, text=text)
+text_area.x = 30
+text_area.y = 60
+display.show(text_area)
+
 # Define pin connected to piezo buzzer.
 PIEZO_PIN = board.A1
 NOTE_B0  =31
@@ -158,7 +180,9 @@ miiChannelNotes = [
     NOTE_D5, NOTE_FS5, NOTE_A5, NOTE_CS6, NOTE_A5, NOTE_FS5,
     NOTE_E6, NOTE_DS6, NOTE_D6, 0,
     NOTE_GS5, 0, NOTE_CS6, NOTE_FS5, 0, NOTE_CS6, 0, NOTE_GS5, 
-    0, NOTE_CS6, 0, NOTE_A5, NOTE_FS5, 0, NOTE_E5, 0
+    0, NOTE_CS6, 0, NOTE_A5, NOTE_FS5, 0, NOTE_E5, 0,
+    NOTE_E5, NOTE_E5, NOTE_E5, 0, NOTE_E5, NOTE_E5,
+    NOTE_E5, 0, NOTE_DS5, NOTE_D5, NOTE_CS5
 ]
 miiChannelBeats = [
     quarterNote, eighthNote, quarterNote, quarterNote, eighthNote,
@@ -166,16 +190,23 @@ miiChannelBeats = [
     eighthNote, eighthNote, eighthNote, quarterNote, quarterNote, eighthNote, 
     quarterNote, eighthNote, eighthNote, quarterNote+eighthNote, 
     eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote,
-    eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote 
+    eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote,
+    eighthNote, eighthNote, eighthNote, quarterNote+eighthNote, eighthNote, eighthNote,
+    eighthNote, eighthNote+quarterNote, quarterNote, quarterNote
 ]
 
 def miiProgram():
+    lowLeft.angle = 90
+    lowRight.angle = 90
+    upLeft.angle = 90
+    upRight.angle = 90
+
     while 1:
-        for index in range(0, len(miiChannelNotes), 1):
-            simpleio.tone(PIEZO_PIN, miiChannelNotes[index], duration=miiChannelBeats[index])
+        for index in range(0, len(miiChannelBeats), 1):
+            simpleio.tone(PIEZO_PIN, miiChannelNotes[index], duration=(miiChannelBeats[index])/1.5)
             try:
                 print((sonar.distance))
-                if (sonar.distance > 5):
+                if (sonar.distance > 25):
                     return 0
             except RuntimeError:
                 print("Retrying!")
@@ -193,8 +224,9 @@ def dance1():
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
         try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
+            distance = sonar.distance
+            print(distance)
+            if (distance < 4):
                 miiProgram()
         except RuntimeError:
             print("Retrying!")
@@ -202,8 +234,9 @@ def dance1():
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
         try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
+            distance = sonar.distance
+            print(distance)
+            if (distance < 4):
                 miiProgram()
         except RuntimeError:
             print("Retrying!")
@@ -215,8 +248,9 @@ def dance1():
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
         try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
+            distance = sonar.distance
+            print(distance)
+            if (distance < 4):
                 miiProgram()
         except RuntimeError:
             print("Retrying!")
@@ -228,8 +262,9 @@ def dance1():
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
         try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
+            distance = sonar.distance
+            print(distance)
+            if (distance < 4):
                 miiProgram()
         except RuntimeError:
             print("Retrying!")
@@ -241,8 +276,9 @@ def dance1():
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
         index = index + 1
         try:
-            print((sonar.distance))
-            if (sonar.distance < 4):
+            distance = sonar.distance
+            print(distance)
+            if (distance < 4):
                 miiProgram()
         except RuntimeError:
             print("Retrying!")
@@ -623,7 +659,6 @@ def dance6():
                 lowLeft.angle = 60 
                 simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
                 index = index + 1
-                try:
                 lowRight.angle = 60
                 lowLeft.angle = 120
                 simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
@@ -683,6 +718,7 @@ def dance6():
         count+=1
 
 while True:
+    pass
     dance1()
     dance2()
     dance3()
