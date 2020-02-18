@@ -25,8 +25,19 @@ splash.append(my_label)
 
 display.show(splash)
 
-text = "Hello world"
-text_area = label.Label(terminalio.FONT, text=text)
+text1 = "DANCE 1"
+text2 = "DANCE 2"
+text3 = "DANCE 3"
+text4 = "DANCE 4"
+text5 = "DANCE 5"
+text6 = "DANCE 6"
+text_area = label.Label(terminalio.FONT, text=text1)
+text_area.x = 10
+text_area.y = 10
+display.show(text_area)
+
+#What might this do?
+text_area = label.Label(terminalio.FONT, text=text2)
 text_area.x = 10
 text_area.y = 10
 display.show(text_area)
