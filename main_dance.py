@@ -235,8 +235,14 @@ def dance6():
 
 while True:
     dance1()
+    time.sleep(0.5)
     dance2()
+    time.sleep(0.5)
     dance3()
+    time.sleep(0.5)
     dance4()
+    time.sleep(0.5)
     dance5()
+    time.sleep(0.5)
     dance6()
+    
