@@ -115,7 +115,9 @@ miiChannelNotes = [
     NOTE_D5, NOTE_FS5, NOTE_A5, NOTE_CS6, NOTE_A5, NOTE_FS5,
     NOTE_E6, NOTE_DS6, NOTE_D6, 0,
     NOTE_GS5, 0, NOTE_CS6, NOTE_FS5, 0, NOTE_CS6, 0, NOTE_GS5, 
-    0, NOTE_CS6, 0, NOTE_A5, NOTE_FS5, 0, NOTE_E5, 0
+    0, NOTE_CS6, 0, NOTE_A5, NOTE_FS5, 0, NOTE_E5, 0,
+    NOTE_E5, NOTE_E5, NOTE_E5, 0, NOTE_E5, NOTE_E5,
+    NOTE_E5, 0, NOTE_DS5, NOTE_D5, NOTE_CS5
 ]
 miiChannelBeats = [
     quarterNote, eighthNote, quarterNote, quarterNote, eighthNote,
@@ -123,7 +125,9 @@ miiChannelBeats = [
     eighthNote, eighthNote, eighthNote, quarterNote, quarterNote, eighthNote, 
     quarterNote, eighthNote, eighthNote, quarterNote+eighthNote, 
     eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote,
-    eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote 
+    eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote, eighthNote,
+    eighthNote, eighthNote, eighthNote, quarterNote+eighthNote, eighthNote, eighthNote,
+    eighthNote, eighthNote+quarterNote, quarterNote, quarterNote
 ]
 
 def miiProgram():
