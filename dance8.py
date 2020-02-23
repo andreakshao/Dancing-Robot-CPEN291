@@ -19,7 +19,7 @@ upLeft = servo.Servo(pwm4)
 def dance8():
     lowLeft.angle = 90
     lowRight.angle = 90
-    while true:
+    while True:
         upRight.angle = 60
         upLeft.angle = 60
         time.sleep(0.2)
