@@ -1,3 +1,4 @@
+# adding import statements
 import board
 import displayio
 import terminalio
@@ -22,15 +23,17 @@ lowRight = servo.Servo(pwm2) #alternative name servo2
 upRight = servo.Servo(pwm3) #alternative name servo3
 upLeft = servo.Servo(pwm4) #alternative name servo4
 
+# setting up sonar to use pin out D3 and D4
 sonar = adafruit_hcsr04.HCSR04(trigger_pin=board.D3, echo_pin=board.D4)
 
 # Release any resources currently in use for the displays
 displayio.release_displays()
 
+# setting up LCD board
 spi = board.SPI()
 tft_cs = board.D11
 tft_dc = board.D9
-
+# setting up the LCD board so the code knows the size of the screen
 display_bus = displayio.FourWire(spi, command=tft_dc, chip_select=tft_cs, reset=board.D7)
 display = ST7735R(display_bus, width=128, height=128)
 
@@ -40,6 +43,7 @@ my_label = label.Label(terminalio.FONT, text="My Label Text", color=0xFFFFFF, x 
 splash.append(my_label)
 display.show(splash)
 
+# setting up text to display on LCD
 text = "Hello world"
 text_area = label.Label(terminalio.FONT, text=text)
 text_area.x = 30
@@ -47,6 +51,7 @@ text_area.y = 60
 display.show(text_area)
 
 # Define pin connected to piezo buzzer.
+# creating a bunch of note varriables to help create the song
 PIEZO_PIN = board.A1
 NOTE_B0  =31
 NOTE_C1  =33
@@ -137,14 +142,16 @@ NOTE_C8  =4186
 NOTE_CS8 =4435
 NOTE_D8  =4699
 NOTE_DS8 =4978
-
+# this allows us to set up how long each note plays for
 wholeNote = 2
 halfNote = 1
 quarterNote = 0.5
 eighthNote = 0.25
 sixteenthNote = 0.125
 
+# creating a list of notes 
 notes = [NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_F4, NOTE_E4]
+# this is a list for our song shootingStars this list of notes corresponds with the list of notes in the shooting Stars Beats
 shootingStarsNotes = [
     NOTE_DS5, NOTE_DS5, 0, NOTE_E5, NOTE_B4, NOTE_GS4, NOTE_DS5,
     NOTE_DS5, NOTE_DS5, 0, NOTE_E5, NOTE_B4, NOTE_GS4, NOTE_DS5,
@@ -159,6 +166,7 @@ shootingStarsNotes = [
     NOTE_DS5, NOTE_DS5, 0, NOTE_E5, NOTE_B4, NOTE_GS4, NOTE_DS5,
     NOTE_DS5, NOTE_DS5, 0, NOTE_E5, NOTE_DS5, NOTE_B4, NOTE_GS4
     ]
+# this is a list that has the length of each note above
 shootingStarsBeats = [
     quarterNote+eighthNote, sixteenthNote, sixteenthNote, quarterNote, eighthNote, sixteenthNote, sixteenthNote, 
     quarterNote+eighthNote, sixteenthNote, sixteenthNote, quarterNote, eighthNote, sixteenthNote, sixteenthNote, 
@@ -173,7 +181,7 @@ shootingStarsBeats = [
     quarterNote+eighthNote, sixteenthNote, sixteenthNote, quarterNote, eighthNote, sixteenthNote, sixteenthNote,
     quarterNote+eighthNote, sixteenthNote, sixteenthNote, eighthNote, eighthNote, eighthNote, eighthNote
     ]
-
+# a list of notes for mii
 miiChannelNotes = [
     NOTE_FS5, NOTE_A5, NOTE_CS6, NOTE_A5, NOTE_FS5, 
     NOTE_D5, NOTE_D5, NOTE_D5, 0, NOTE_CS5,
@@ -184,6 +192,7 @@ miiChannelNotes = [
     NOTE_E5, NOTE_E5, NOTE_E5, 0, NOTE_E5, NOTE_E5,
     NOTE_E5, 0, NOTE_DS5, NOTE_D5, NOTE_CS5
 ]
+# a list of beat length. Each time has a note that it matches in the list "miiChannelNotes"
 miiChannelBeats = [
     quarterNote, eighthNote, quarterNote, quarterNote, eighthNote,
     eighthNote, eighthNote, eighthNote, halfNote, eighthNote,
@@ -719,9 +728,10 @@ def dance6():
 
 while True:
     pass
-    dance1()
-    dance2()
-    dance3()
-    dance4()
-    dance5()
-    dance6()
+    # this is our main function. It runs on a loop and has all our dances
+    dance1() # dance 1
+    dance2() # dance 2
+    dance3() # dance 3
+    dance4() # dance 4
+    dance5() # dance 5
+    dance6() # dance 6
