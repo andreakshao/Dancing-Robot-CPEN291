@@ -205,21 +205,22 @@ miiChannelBeats = [
 ]
 
 def miiProgram():
-    lowLeft.angle = 90
-    lowRight.angle = 90
-    upLeft.angle = 90
-    upRight.angle = 90
+    lowLeft.angle = 90 # set left foot angle
+    lowRight.angle = 90 # set right foot angle
+    upLeft.angle = 90 # set left knee angle
+    upRight.angle = 90 # set right knee angle
+    # this makes the robot face forward
 
     while 1:
         for index in range(0, len(miiChannelBeats), 1):
-            simpleio.tone(PIEZO_PIN, miiChannelNotes[index], duration=(miiChannelBeats[index])/1.5)
+            simpleio.tone(PIEZO_PIN, miiChannelNotes[index], duration=(miiChannelBeats[index])/1.5) # play the miiChannel Song
             try:
                 print((sonar.distance))
                 if (sonar.distance > 25):
-                    return 0
+                    return 0 # if the distance of the sonar is greater than 25cm stop playing the song
             except RuntimeError:
                 print("Retrying!")
-            time.sleep(0.1)
+            time.sleep(0.1) # wait 0.1 seconds
         
 
 index = 0
