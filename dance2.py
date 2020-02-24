@@ -53,5 +53,10 @@ def dance2():
             upRight.angle = 60
             time.sleep(0.1)
             upRight.angle = 120
+        lowLeft.angle = 90
+        lowRight.angle = 90
+        upLeft.angle = 90
+        upRight.angle = 90
+        time.sleep(0.5)
 
 dance2()
