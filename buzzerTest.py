@@ -1,10 +1,10 @@
+# define import statements
 import board
-
 import simpleio
-
 
 # Define pin connected to piezo buzzer.
 PIEZO_PIN = board.A1
+# define a series of notes
 NOTE_B0  =31
 NOTE_C1  =33
 NOTE_CS1 =35
@@ -95,13 +95,15 @@ NOTE_CS8 =4435
 NOTE_D8  =4699
 NOTE_DS8 =4978
 
+# this allows us to set up how long each note plays for
 wholeNote = 2
 halfNote = 1
 quarterNote = 0.5
 eighthNote = 0.25
 sixteenthNote = 0.125
-
+# creating a list of notes 
 notes = [NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_F4, NOTE_E4]
+# this is a list for our song shootingStars this list of notes corresponds with the list of notes in the shooting Stars Beats
 shootingStarsNotes = [
     NOTE_DS5, NOTE_DS5, 0, NOTE_E5, NOTE_B4, NOTE_GS4, NOTE_DS5,
     NOTE_DS5, NOTE_DS5, 0, NOTE_E5, NOTE_B4, NOTE_GS4, NOTE_DS5,
@@ -116,6 +118,7 @@ shootingStarsNotes = [
     NOTE_DS5, NOTE_DS5, 0, NOTE_E5, NOTE_B4, NOTE_GS4, NOTE_DS5,
     NOTE_DS5, NOTE_DS5, 0, NOTE_E5, NOTE_DS5, NOTE_B4, NOTE_GS4
     ]
+    # this is a list that has the length of each note above
 shootingStarsBeats = [
     quarterNote+eighthNote, sixteenthNote, sixteenthNote, quarterNote, eighthNote, sixteenthNote, sixteenthNote, 
     quarterNote+eighthNote, sixteenthNote, sixteenthNote, quarterNote, eighthNote, sixteenthNote, sixteenthNote, 
@@ -130,7 +133,7 @@ shootingStarsBeats = [
     quarterNote+eighthNote, sixteenthNote, sixteenthNote, quarterNote, eighthNote, sixteenthNote, sixteenthNote,
     quarterNote+eighthNote, sixteenthNote, sixteenthNote, eighthNote, eighthNote, eighthNote, eighthNote
     ]
-
+# a list of notes for mii
 miiChannelNotes = [
     NOTE_FS5, NOTE_A5, NOTE_CS6, NOTE_A5, NOTE_FS5, 
     NOTE_D5, NOTE_D5, NOTE_D5, 0, NOTE_CS5,
@@ -141,6 +144,7 @@ miiChannelNotes = [
     NOTE_E5, NOTE_E5, NOTE_E5, 0, NOTE_E5, NOTE_E5,
     NOTE_E5, 0, NOTE_DS5, NOTE_D5, NOTE_CS5
 ]
+# a list of beat length. Each time has a note that it matches in the list "miiChannelNotes"
 miiChannelBeats = [
     quarterNote, eighthNote, quarterNote, quarterNote, eighthNote,
     eighthNote, eighthNote, eighthNote, halfNote, eighthNote,
@@ -156,4 +160,4 @@ miiChannelBeats = [
 while True:
     # Play tones going from start to end of list.
     for index in range(0, len(shootingStarsBeats), 1):
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # send tone to buzzer
