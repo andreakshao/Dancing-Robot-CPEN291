@@ -1,21 +1,24 @@
+# adding import statements
 import simpleio
 import time
 import board
 import pulseio
 from adafruit_motor import servo
 
+# create a PWMOut object on Pin A2.
 pwm1 = pulseio.PWMOut(board.D13, duty_cycle=2 ** 15, frequency = 50)
 pwm2 = pulseio.PWMOut(board.D12, duty_cycle=2 ** 15, frequency = 50)
 pwm3 = pulseio.PWMOut(board.D10, duty_cycle=2 ** 15, frequency = 50)
 pwm4 = pulseio.PWMOut(board.D5, duty_cycle=2 ** 15, frequency=  50)
-
-lowLeft = servo.Servo(pwm1)
-lowRight = servo.Servo(pwm2)
-upperRight = servo.Servo(pwm3)
-upperLeft = servo.Servo(pwm4)
+# Create a servo object, my_servo.
+lowLeft = servo.Servo(pwm1) #alternative name servo1
+lowRight = servo.Servo(pwm2) #alternative name servo2
+upRight = servo.Servo(pwm3) #alternative name servo3
+upLeft = servo.Servo(pwm4) #alternative name servo4
 
 # Define pin connected to piezo buzzer.
 PIEZO_PIN = board.A1
+# define a series of notes
 NOTE_B0  =31
 NOTE_C1  =33
 NOTE_CS1 =35
@@ -106,13 +109,15 @@ NOTE_CS8 =4435
 NOTE_D8  =4699
 NOTE_DS8 =4978
 
+# this allows us to set up how long each note plays for
 wholeNote = 2
 halfNote = 1
 quarterNote = 0.5
 eighthNote = 0.25
 sixteenthNote = 0.125
-
+# creating a list of notes 
 notes = [NOTE_C4, NOTE_C4, NOTE_D4, NOTE_C4, NOTE_F4, NOTE_E4]
+# this is a list for our song shootingStars this list of notes corresponds with the list of notes in the shooting Stars Beats
 shootingStarsNotes = [
     NOTE_DS5, NOTE_DS5, 0, NOTE_E5, NOTE_B4, NOTE_GS4, NOTE_DS5,
     NOTE_DS5, NOTE_DS5, 0, NOTE_E5, NOTE_B4, NOTE_GS4, NOTE_DS5,
@@ -127,6 +132,7 @@ shootingStarsNotes = [
     NOTE_DS5, NOTE_DS5, 0, NOTE_E5, NOTE_B4, NOTE_GS4, NOTE_DS5,
     NOTE_DS5, NOTE_DS5, 0, NOTE_E5, NOTE_DS5, NOTE_B4, NOTE_GS4
     ]
+    # this is a list that has the length of each note above
 shootingStarsBeats = [
     quarterNote+eighthNote, sixteenthNote, sixteenthNote, quarterNote, eighthNote, sixteenthNote, sixteenthNote, 
     quarterNote+eighthNote, sixteenthNote, sixteenthNote, quarterNote, eighthNote, sixteenthNote, sixteenthNote, 
@@ -147,108 +153,128 @@ timeout = time.time() + 10   # 30 seconds each minutes from now
 index = 0
 
 def new_dance1():
-    global index
+    global index # a global varriable to access the position of the notes for the buzzer
 
     while index < len(shootingStarsBeats):
-        lowLeft.angle = 90
-        lowRight.angle = 90
-        upperLeft.angle = 90
-        upperRight.angle = 90
+        lowLeft.angle = 90 # set left foot angle
+        lowRight.angle = 90 # set right foot angle
+        upperLeft.angle = 90 # set left knee angle
+        upperRight.angle = 90 # set right knee angle
         #first part of dance
-        lowLeft.angle = 120
-        lowRight.angle = 60
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
-        index = index + 1
+        lowLeft.angle = 120 # set left foot angle
+        lowRight.angle = 60 # set right foot angle
+        # Because we only have one processor and we want to do two things at the same time we make it seem like it is threading
+        # so we play the buzzer
+        # the buzzer is given a note from the list shootingStarsNotes and its corresponding duration from shootingStarsBeats
+        # both of these places are determined by the global varrialbe index which is increased by 1 after each note
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the note
+        index = index + 1 # increase the index
         if index == len(shootingStarsBeats):
-            index = 0
+            # if index is equal to length of song restart the song
+            index = 0 # set index to zero
 
-        lowLeft.angle = 60
-        lowRight.angle = 120
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
-        index = index + 1
+        lowLeft.angle = 60 # set left foot angle
+        lowRight.angle = 120 # set right foot angle
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the note
+        index = index + 1 # increase the index
         if index == len(shootingStarsBeats):
-            index = 0
+            # if index is equal to length of song restart the song
+            index = 0 # set index to zero
 
-        lowLeft.angle = 90
-        lowRight.angle = 90
-        upperLeft.angle = 120
-        upperRight.angle = 60
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
-        index = index + 1
+        lowLeft.angle = 90 # set left foot angle
+        lowRight.angle = 90 # set right foot angle
+        upperLeft.angle = 120 # set left knee angle
+        upperRight.angle = 60 # set right knee angle
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the note
+        index = index + 1 # increase the index
         if index == len(shootingStarsBeats):
-            index = 0
+            # if index is equal to length of song restart the song
+            index = 0 # set index to zero
 
-        upperLeft.angle = 60
-        upperRight.angle = 120
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
-        index = index + 1
+        upperLeft.angle = 60 # set left knee angle
+        upperRight.angle = 120 # set right knee angle
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the note
+        index = index + 1 # increase the index
         if index == len(shootingStarsBeats):
-            index = 0
+            # if index is equal to length of song restart the song
+            index = 0 # set index to zero
 
         if time.time() > timeout: #or other conditions, example (if distance read)
-            lowLeft.angle = 90
-            lowRight.angle = 90
-            upperLeft.angle = 90
-            upperRight.angle = 90
-            #return
-            break
+            # this helped with testing to stop the program after a certain time
+            # these four lines make the robot face forward
+            lowLeft.angle = 90 # set left foot angle
+            lowRight.angle = 90 # set right foot angle
+            upperLeft.angle = 90 # set left knee angle
+            upperRight.angle = 90 # set right knee angle
+            break #return
 
 def new_dance2():
     global index
 
     while index < len(shootingStarsBeats):
-        lowLeft.angle = 90
-        lowRight.angle = 90
-        upperLeft.angle = 90
-        upperRight.angle = 90
+        lowLeft.angle = 90 # set left foot angle
+        lowRight.angle = 90 # set right foot angle
+        upperLeft.angle = 90 # set left knee angle
+        upperRight.angle = 90 # set right knee angle
 
         #first part of dance
-        lowLeft.angle = 100
-        upperLeft.angle = 120
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
-        index = index + 1
+        lowLeft.angle = 100 # set left foot angle
+        upperLeft.angle = 120 # set left knee angle
+        # Because we only have one processor and we want to do two things at the same time we make it seem like it is threading
+        # so we play the buzzer
+        # the buzzer is given a note from the list shootingStarsNotes and its corresponding duration from shootingStarsBeats
+        # both of these places are determined by the global varrialbe index which is increased by 1 after each note
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the note
+        index = index + 1 # increase the index
         if index == len(shootingStarsBeats):
-            index = 0
+            # if index is equal to length of song restart the song
+            index = 0 # set index to zero
 
-        lowLeft.angle = 80
-        upperLeft.angle = 60
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
-        index = index + 1
+        lowLeft.angle = 80 # set left foot angle
+        upperLeft.angle = 60 # set left knee angle
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the note
+        index = index + 1  # increase the index
         if index == len(shootingStarsBeats):
-            index = 0
+            # if index is equal to length of song restart the song
+            index = 0 # set index to zero
 
 
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
-        index = index + 1
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the note
+        index = index + 1 # increase the index
         if index == len(shootingStarsBeats):
-            index = 0
+            # if index is equal to length of song restart the song
+            index = 0 # set index to zero
 
-        lowLeft.angle = 90
-        upperLeft.angle = 90
-        lowRight.angle = 100
-        upperRight.angle = 120
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
-        index = index + 1
+        lowLeft.angle = 90 # set left foot angle
+        upperLeft.angle = 90 # set left knee angle
+        lowRight.angle = 100 # set right foot angle
+        upperRight.angle = 120 # set right knee anlge
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the note
+        index = index + 1 # increase the index
         if index == len(shootingStarsBeats):
-            index = 0
+            # if index is equal to length of song restart the song
+            index = 0 # set index to zero
 
-        lowRight.angle = 80
-        upperRight.angle = 60
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])
-        index = index + 1
+        lowRight.angle = 80 # set right foot angle
+        upperRight.angle = 60 # set right knee angle
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the note
+        index = index + 1 # increase the index
         if index == len(shootingStarsBeats):
-            index = 0
+            # if index is equal to length of song restart the song
+            index = 0 # set index to zero
 
         if time.time() > timeout: #or other conditions, example (if distance read)
-            lowLeft.angle = 90
-            lowRight.angle = 90
-            upperLeft.angle = 90
-            upperRight.angle = 90
+            # this helped with testing to stop the program after a certain time
+            # these four lines make the robot face forward
+            lowLeft.angle = 90 # set left foot angle
+            lowRight.angle = 90 # set right foot angle
+            upperLeft.angle = 90 # set left knee angle
+            upperRight.angle = 90 # set right knee angle
             break #or return
 
-new_dance1()
+new_dance1() # this starts dance one
 timeout = time.time() + 30
-new_dance2()
+new_dance2() # this starts dance two
 
 
 
