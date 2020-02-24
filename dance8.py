@@ -17,22 +17,26 @@ upRight = servo.Servo(pwm3)
 upLeft = servo.Servo(pwm4)
 
 def dance8():
-    lowLeft.angle = 90
-    lowRight.angle = 90
+    # set position to forward facing
+    lowLeft.angle = 90 # set left foot angle
+    lowRight.angle = 90 # set right foot angle
+    upLeft.angle = 90 # set left knee angle
+    upRight.angle = 90 # set right knee angle
+    time.sleep(1) # sleep for 1 second
     while True:
-        upRight.angle = 60
-        upLeft.angle = 60
-        time.sleep(0.2)
-        upLeft.angle = 120
-        upRight.angle = 120
-        time.sleep(0.6)
-        upRight.angle = 60
-        upLeft.angle = 60
-        time.sleep(0.2)
-        upRight.angle = 120
-        upLeft.angle = 120
-        time.sleep(0.2)
-        upRight.angle = 60
-        upLeft.angle = 60
+        upRight.angle = 60 # set right knee angle
+        upLeft.angle = 60 # set left knee angle
+        time.sleep(0.2) # sleep for 0.2 secnods
+        upLeft.angle = 120 # set left knee angle
+        upRight.angle = 120 # set right knee angle
+        time.sleep(0.2) # sleep for 0.2 secnods
+        upRight.angle = 60 # set right knee angle
+        upLeft.angle = 60 # set left knee angle
+        time.sleep(0.2) # sleep for 0.2 secnods
+        upRight.angle = 120 # set right knee angle
+        upLeft.angle = 120 # set left knee angle
+        time.sleep(0.2) # sleep for 0.2 secnods
+        upRight.angle = 60 # set right knee angle
+        upLeft.angle = 60 # set left knee angle
         
 dance8()

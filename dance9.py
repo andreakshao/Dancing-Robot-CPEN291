@@ -16,24 +16,23 @@ lowRight = servo.Servo(pwm2)
 upRight = servo.Servo(pwm3)
 upLeft = servo.Servo(pwm4)
 
-timeout = time.time() + 60*5   # 5 minutes from now
-
 def dance9():
-    # center the feet and knees
-    lowLeft.angle = 90
-    lowRight.angle = 90
-    upLeft.angle = 90
-    upRight.angle = 90
+    # set position to forward facing
+    lowLeft.angle = 90 # set left foot angle
+    lowRight.angle = 90 # set right foot angle
+    upLeft.angle = 90 # set left knee angle
+    upRight.angle = 90 # set right knee angle
+    time.sleep(1) # sleep for 1 second
     while True:
         for num in range(5):
-            lowLeft.angle = 60
-            time.sleep(0.1)
-            lowRight.angle = 60
-            time.sleep(0.2)
-            lowLeft.angle = 120
-            time.sleep(0.1)
-            lowRight.angle = 120
-            time.sleep(0.2)
-        lowLeft.angle = 90
-        lowRight.angle = 90
+            lowLeft.angle = 60 # set left foot angle
+            time.sleep(0.1) # sleep for 0.1 seconds
+            lowRight.angle = 60 # set right foot angle
+            time.sleep(0.2) # sleep for 0.2 seconds
+            lowLeft.angle = 120 # set left foot angle
+            time.sleep(0.1) # sleep for 0.1 seconds
+            lowRight.angle = 120 # set right foot angle
+            time.sleep(0.2) # sleep for 0.2 seconds
+        lowLeft.angle = 90 # set left foot angle
+        lowRight.angle = 90 # set right foot angle
 dance9()
