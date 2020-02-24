@@ -227,6 +227,13 @@ index = 0
 def dance1():
     global index # make sure the global varriable index can be accessed 
     index = 0 # this is the very first dance move. Set index to zero so restart the shooting star song
+
+    # setting up text to display on LCD
+    text = "Starting Dance1!"
+    text_area = label.Label(terminalio.FONT, text=text)
+    text_area.x = 30
+    text_area.y = 60
+    display.show(text_area)
     
     print("Dance 1") # print the word Dance 1
     for angle in range(70, 110, 20):  # 70 - 110 degrees, 20 degrees at a time.
@@ -298,6 +305,13 @@ def dance2():
     global index # make sure the global varriable index can be accessed 
     if (index >= len(shootingStarsBeats) - 10):
         index = 0 # if index is greater than the shootingStar song restart the song
+
+    # setting up text to display on LCD
+    text = "Starting Dance 2!"
+    text_area = label.Label(terminalio.FONT, text=text)
+    text_area.x = 30
+    text_area.y = 60
+    display.show(text_area)
     
     print("Dance 2")
     lowLeft.angle = 90 # set angle of left foot
@@ -369,6 +383,13 @@ def dance3():
     global index # make sure the global varriable index can be accessed 
     if (index >= len(shootingStarsBeats) - 10):
         index = 0 # if index is greater than the shootingStar song restart the song
+
+    # setting up text to display on LCD
+    text = "Starting Dance 3!"
+    text_area = label.Label(terminalio.FONT, text=text)
+    text_area.x = 30
+    text_area.y = 60
+    display.show(text_area)
     
     print("Dance 3")
     lowLeft.angle = 90 # set left foot angle
@@ -433,6 +454,13 @@ def dance4():
     global index # make sure the global varriable index can be accessed 
     if (index >= len(shootingStarsBeats) - 20):
         index = 0 # if index is greater than the shootingStar song restart the song
+
+    # setting up text to display on LCD
+    text = "Starting Dance4!"
+    text_area = label.Label(terminalio.FONT, text=text)
+    text_area.x = 30
+    text_area.y = 60
+    display.show(text_area)
     
     print("Dance 4")
     for angle in range(70, 110, 20):  # 30 - 150 degrees, 5 degrees at a time.
@@ -584,6 +612,13 @@ def dance5():
     global index # make sure the global varriable index can be accessed 
     if (index >= len(shootingStarsBeats) - 10):
         index = 0 # if index is greater than the shootingStar song restart the song
+
+    # setting up text to display on LCD
+    text = "Starting Dance5!"
+    text_area = label.Label(terminalio.FONT, text=text)
+    text_area.x = 30
+    text_area.y = 60
+    display.show(text_area)
     
     print("Dance 5")
     lowRight.angle = 60 # set right foot angle
@@ -644,6 +679,13 @@ def dance6():
     global index # make sure the global varriable index can be accessed 
     if (index >= len(shootingStarsBeats) - 10):
         index = 0 # if index is greater than the shootingStar song restart the song
+
+    # setting up text to display on LCD
+    text = "Starting Dance 6!"
+    text_area = label.Label(terminalio.FONT, text=text)
+    text_area.x = 30
+    text_area.y = 60
+    display.show(text_area)
     
     print("Dance 6")
     count = 0 # set count to 0
