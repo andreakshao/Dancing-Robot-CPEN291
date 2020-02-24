@@ -16,8 +16,13 @@ lowLeft = servo.Servo(pwm1)
 lowRight = servo.Servo(pwm2)
 upRight = servo.Servo(pwm3)
 upLeft = servo.Servo(pwm4)
- 
+
 def dance6():
+    lowLeft.angle = 90
+    lowRight.angle = 90
+    upLeft.angle = 90
+    upRight.angle = 90
+    time.sleep(1)
     while True:
         for angle in range(60, 120, 10):  # 0 - 180 degrees, 5 degrees at a time.
             upLeft.angle = angle

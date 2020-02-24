@@ -20,7 +20,7 @@ def dance3():
     lowRight.angle = 90
     upLeft.angle = 90
     upRight.angle = 90
-
+    time.sleep(1)
     while True:
         for num in range(60, 120, 20):
             if num % 40 == 0:

@@ -724,7 +724,7 @@ def dance6():
                 miiProgram() # if the distance is less than 4cm run the miiProgram
         except RuntimeError:
             print("Retrying!") # error message
-        count+=1
+        count+=1 # increase the count by 1
 
 while True:
     pass

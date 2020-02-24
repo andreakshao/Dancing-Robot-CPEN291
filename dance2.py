@@ -20,6 +20,11 @@ upLeft = servo.Servo(pwm4)
 timeout = time.time() + 60*5   # 5 minutes from now
 
 def dance2():
+    lowLeft.angle = 90
+    lowRight.angle = 90
+    upLeft.angle = 90
+    upRight.angle = 90
+    time.sleep(1)
     while True:
         for num in range(5):
             lowLeft.angle = 60
