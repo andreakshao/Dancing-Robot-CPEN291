@@ -21,31 +21,34 @@ upLeft = servo.Servo(pwm4)
 timeout = time.time() + 60*5   # 5 minutes from now
 
 def dance5():
-    lowLeft.angle = 90
-    lowRight.angle = 90
-    upLeft.angle = 90
-    upRight.angle = 90
-    time.sleep(1)
+    # set position to forward facing
+    lowLeft.angle = 90 # set left foot angle
+    lowRight.angle = 90 # set right foot angle
+    upLeft.angle = 90 # set left knee angle
+    upRight.angle = 90 # set right knee angle
+    time.sleep(1) # sleep for 1 second
     while True:
-            lowRight.angle = 60
-            time.sleep(0.2)
-            lowRight.angle = 120
-            time.sleep(0.2)
-            lowRight.angle = 60
-            time.sleep(0.2)
-            lowRight.angle = 120
-            time.sleep(0.2)
-            lowRight.angle = 90
+            # tap the right foot
+            lowRight.angle = 60 # set right foot angle
+            time.sleep(0.2) # sleep for 0.2 seconds
+            lowRight.angle = 120 # set right foot angle
+            time.sleep(0.2) # sleep for 0.2 seconds
+            lowRight.angle = 60 # set right foot angle
+            time.sleep(0.2) # sleep for 0.2 seconds
+            lowRight.angle = 120 # set right foot angle
+            time.sleep(0.2) # sleep for 0.2 seconds
+            lowRight.angle = 90 # set right foot angle
             
-            lowLeft.angle = 60
-            time.sleep(0.2)
-            lowLeft.angle = 120
-            time.sleep(0.2)
-            lowLeft.angle = 60
-            time.sleep(0.2)
-            lowLeft.angle = 120
-            time.sleep(0.2)
-            lowLeft.angle = 90
+            # tap the left foot
+            lowLeft.angle = 60 # set left foot angle
+            time.sleep(0.2) # sleep for 0.2 seconds
+            lowLeft.angle = 120 # set left foot angle
+            time.sleep(0.2) # sleep for 0.2 seconds
+            lowLeft.angle = 60 # set left foot angle
+            time.sleep(0.2) # sleep for 0.2 seconds
+            lowLeft.angle = 120 # set left foot angle
+            time.sleep(0.2) # sleep for 0.2 seconds
+            lowLeft.angle = 90 # set left foot angle
             
             
 dance5()

@@ -17,87 +17,72 @@ lowRight = servo.Servo(pwm2)
 upRight = servo.Servo(pwm3)
 upLeft = servo.Servo(pwm4)
 
-timeout = time.time() + 60*5   # 5 minutes from now
-
 def dance4():
-    lowLeft.angle = 90
-    lowRight.angle = 90
-    upLeft.angle = 90
-    upRight.angle = 90
-    time.sleep(1)
+    # set position to forward facing
+    lowLeft.angle = 90 # set left foot angle
+    lowRight.angle = 90 # set right foot angle
+    upLeft.angle = 90 # set left knee angle
+    upRight.angle = 90 # set right knee angle
+    time.sleep(1) # sleep for 1 second
     while True:
-        for angle in range(70, 110, 20):  # 30 - 150 degrees, 5 degrees at a time.
-            lowLeft.angle = angle
-            time.sleep(0.1)
-            lowRight.angle = 180 - angle
-            time.sleep(0.1)
-            upRight.angle = angle
-            time.sleep(0.1)
-            upLeft.angle = 180 - angle
-            time.sleep(0.1)
-        for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
-            lowLeft.angle = angle
-            time.sleep(0.1)
-            lowRight.angle = 180 - angle
-            time.sleep(0.1)
-            upRight.angle = angle
-            time.sleep(0.1)
-            upLeft.angle = 180 - angle
-            time.sleep(0.1)
+        for angle in range(70, 110, 20):  # 70 - 110 degrees, 20 degrees at a time.
+            lowLeft.angle = angle # set left foot angle
+            time.sleep(0.1) # sleep for 0.1 seconds
+            lowRight.angle = 180 - angle # set right foot angle
+            time.sleep(0.1) # sleep for 0.1 seconds
+            upRight.angle = angle # set right knee angle
+            time.sleep(0.1) # sleep for 0.1 seconds
+            upLeft.angle = 180 - angle # set left knee angle
+            time.sleep(0.1) # sleep for 0.1 seconds
+        for angle in range(110, 70, -20):  # 70 - 110 degrees, 20 degrees at a time.
+            lowLeft.angle = angle # set left foot angle
+            time.sleep(0.1) # sleep for 0.1 seconds
+            lowRight.angle = 180 - angle # set right foot angle
+            time.sleep(0.1) # sleep for 0.1 seconds
+            upRight.angle = angle # set right knee angle
+            time.sleep(0.1) # sleep for 0.1 seconds
+            upLeft.angle = 180 - angle # set left knee angle
+            time.sleep(0.1) # sleep for 0.1 seconds
 
-        for angle in range(70, 110, 20):  # 150 - 30 degrees, 5 degrees at a time.
+        for angle in range(70, 110, 20):  # 70 - 110 degrees, 20 degrees at a time.
             if angle % 90 == 0:
-                lowLeft.angle = angle - 10
-                time.sleep(0.1)
-                lowRight.angle = 180 - angle + 10
-                time.sleep(0.1)
-                upRight.angle = angle - 10
-                time.sleep(0.1)
-                upLeft.angle = 180 - angle + 10
-                time.sleep(0.1)
+                lowLeft.angle = angle - 10 # set left foot angle
+                time.sleep(0.1) # sleep for 0.1 seconds
+                lowRight.angle = 180 - angle + 10 # set right foot angle
+                time.sleep(0.1) # sleep for 0.1 seconds
+                upRight.angle = angle - 10 # set right knee angle
+                time.sleep(0.1) # sleep for 0.1 seconds
+                upLeft.angle = 180 - angle + 10 # set left knee angle
+                time.sleep(0.1) # sleep for 0.1 seconds
 
-            lowLeft.angle = angle
-            time.sleep(0.1)
-            lowRight.angle = 180 - angle
-            time.sleep(0.1)
-            upRight.angle = angle
-            time.sleep(0.1)
-            upLeft.angle = 180 - angle
-            time.sleep(0.1)
+            lowLeft.angle = angle # set left foot angle
+            time.sleep(0.1) # sleep for 0.1 seconds
+            lowRight.angle = 180 - angle # set right foot angle
+            time.sleep(0.1) # sleep for 0.1 seconds
+            upRight.angle = angle # set right knee angle
+            time.sleep(0.1) # sleep for 0.1 seconds
+            upLeft.angle = 180 - angle # set left knee angle
+            time.sleep(0.1) # sleep for 0.1 seconds
 
-        for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
-            if angle % 90 == 0:
-                lowLeft.angle = angle - 20
-                time.sleep(0.1)
-                lowRight.angle = 180 - angle + 20
-                time.sleep(0.1)
-                upRight.angle = angle - 20
-                time.sleep(0.1)
-                upLeft.angle = 180 - angle + 20
-                time.sleep(0.1)
+        for angle in range(110, 70, -20):  # 70 - 110 degrees, 20 degrees at a time.
+            if angle % 90 == 0: # if the angle is a multiple of 90 run this chunk of code
+                lowLeft.angle = angle - 20 # set left foot angle
+                time.sleep(0.1) # sleep for 0.1 seconds
+                lowRight.angle = 180 - angle + 20 # set right foot angle
+                time.sleep(0.1) # sleep for 0.1 seconds
+                upRight.angle = angle - 20 # set right knee angle
+                time.sleep(0.1) # sleep for 0.1 seconds
+                upLeft.angle = 180 - angle + 20 # set left knee angle
+                time.sleep(0.1) # sleep for 0.1 seconds
 
-            lowLeft.angle = angle
-            time.sleep(0.15)
-            lowRight.angle = 180 - angle
-            time.sleep(0.15)
-            upRight.angle = angle
-            time.sleep(0.15)
-            upLeft.angle = 180 - angle
-            time.sleep(0.15)
-
-
-        if time.time() > timeout:
-            print("BREAK")
-            break
-
-        """
-        if some command break
-        """
-    #default position
-    lowLeft.angle = 90
-    lowRight.angle = 90
-    upLeft.angle = 90
-    upRight.angle = 90
+            lowLeft.angle = angle # set left foot angle
+            time.sleep(0.15) # sleep for 0.15 seconds
+            lowRight.angle = 180 - angle # set right foot angle
+            time.sleep(0.15) # sleep for 0.15 seconds
+            upRight.angle = angle # set right knee angle
+            time.sleep(0.15) # sleep for 0.15 seconds
+            upLeft.angle = 180 - angle # set left knee angle
+            time.sleep(0.15) # sleep for 0.15 seconds
 
 
 dance4()

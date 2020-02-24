@@ -17,46 +17,49 @@ lowRight = servo.Servo(pwm2)
 upRight = servo.Servo(pwm3)
 upLeft = servo.Servo(pwm4)
 
-timeout = time.time() + 60*5   # 5 minutes from now
-
 def dance2():
-    lowLeft.angle = 90
-    lowRight.angle = 90
-    upLeft.angle = 90
-    upRight.angle = 90
-    time.sleep(1)
+    # set position to forward facing
+    lowLeft.angle = 90 # set left foot angle
+    lowRight.angle = 90 # set right foot angle
+    upLeft.angle = 90 # set left knee angle
+    upRight.angle = 90 # set right knee angle
+    time.sleep(1) # sleep for 1 second
     while True:
+        # tap left foot
         for num in range(5):
-            lowLeft.angle = 60
-            time.sleep(0.15)
-            lowLeft.angle = 120
-            time.sleep(0.15)
-            lowLeft.angle = 60
+            lowLeft.angle = 60 # set left foot angle
+            time.sleep(0.15) # sleep for 0.15 seconds
+            lowLeft.angle = 120 # set left foot angle
+            time.sleep(0.15) # sleep for 0.15 seconds
+            lowLeft.angle = 60 # set left foot angle
         lowLeft.angle = 90
+        # shake right foot
         for num in range(5):
-            upLeft.angle = 60
-            time.sleep(0.1)
-            upLeft.angle = 120
-            time.sleep(0.1)
-            upLeft.angle = 60
+            upLeft.angle = 60 # left knee angle
+            time.sleep(0.1) # sleep for 0.1 seconds
+            upLeft.angle = 120 # set left knee angle
+            time.sleep(0.1) # sleep for 0.1 seconds
+            upLeft.angle = 60 # set left knee angle
 
+        # tap right foot
         for num in range(5):
-            lowRight.angle = 120
-            time.sleep(0.15)
-            lowRight.angle = 60
-            time.sleep(0.15)
-            lowRight.angle = 120
+            lowRight.angle = 120 # set right foot angle
+            time.sleep(0.15) # sleep for 0.15 seconds
+            lowRight.angle = 60 # set right foot angle
+            time.sleep(0.15) # sleep for 0.15 seconds
+            lowRight.angle = 120 # set right foot anlge
         lowRight.angle = 90
+        # shake left foot
         for num in range(5):
-            upRight.angle = 120
-            time.sleep(0.1)
-            upRight.angle = 60
-            time.sleep(0.1)
-            upRight.angle = 120
-        lowLeft.angle = 90
-        lowRight.angle = 90
-        upLeft.angle = 90
-        upRight.angle = 90
-        time.sleep(0.5)
-
+            upRight.angle = 120 # set right knee angle
+            time.sleep(0.1) # sleep for 0.1 seconds
+            upRight.angle = 60 # set right knee angle
+            time.sleep(0.1) # sleep for 0.1 seconds
+            upRight.angle = 120 # set right knee angle
+        # set position to forward facing
+        lowLeft.angle = 90 # set left foot angle
+        lowRight.angle = 90 # set right foot angle
+        upLeft.angle = 90 # set left knee angle
+        upRight.angle = 90 # set right knee angle
+        time.sleep(1) # sleep for 1 second
 dance2()

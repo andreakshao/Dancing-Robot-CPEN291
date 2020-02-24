@@ -13,46 +13,39 @@ lowRight = servo.Servo(pwm2)
 upRight = servo.Servo(pwm3)
 upLeft = servo.Servo(pwm4)
 
-timeout = time.time() + 60*5   # 5 minutes from now
-
 def dance3():
-    lowLeft.angle = 90
-    lowRight.angle = 90
-    upLeft.angle = 90
-    upRight.angle = 90
-    time.sleep(1)
+    # set position to forward facing
+    lowLeft.angle = 90 # set left foot angle
+    lowRight.angle = 90 # set right foot angle
+    upLeft.angle = 90 # set left knee angle
+    upRight.angle = 90 # set right knee angle
+    time.sleep(1) # sleep for 1 second
     while True:
-        for num in range(60, 120, 20):
+        for num in range(60, 120, 20): # 60 - 120 degrees, 20 degrees at a time.
             if num % 40 == 0:
-                lowLeft.angle = num + 20
-                lowRight.angle = num - 20
-                time.sleep(0.05)
+                # if num is a multiple of 40 run these lines
+                lowLeft.angle = num + 20 # set left foot angle
+                lowRight.angle = num - 20 # set right foot angle
+                time.sleep(0.05) # sleep for 0.05 seconds
 
-            lowLeft.angle = num
-            lowRight.angle = 180 - num
-            upLeft.angle = num
-            upRight.angle = 180 - num
-            time.sleep(0.1)
+            lowLeft.angle = num # set left foot angle
+            lowRight.angle = 180 - num # set right foot angle
+            upLeft.angle = num # set left knee angle
+            upRight.angle = 180 - num # set right knee angle
+            time.sleep(0.1) # sleep for 0.1 seconds
 
-        for num in range(120, 60, -20):
-            upRight.angle = num
-            upLeft.angle = 180 - num
-            upLeft.angle = num
-            upRight.angle = 180 - num
-            time.sleep(0.05)
+        for num in range(120, 60, -20): # 60 - 120 degrees, 20 degrees at a time.
+            upRight.angle = num # set right knee angle
+            upLeft.angle = 180 - num # set left knee angle
+            upLeft.angle = num # set left knee angle
+            upRight.angle = 180 - num # set right knee angle
+            time.sleep(0.05) # sleep for 0.05 seconds
             if num % 40:
-                upRight.angle = num - 20
-                upLeft.angle = num
-                time.sleep(0.1)
-
-        if time.time() > timeout:
-            lowLeft.angle = 90
-            lowRight.angle = 90
-            upLeft.angle = 90
-            upRight.angle = 90
-            print("TIMED OUT")
-            break
-
+                # if num is a multiple of 40 run these 3 lines
+                upRight.angle = num - 20 # set right knee angle
+                upLeft.angle = num # set left knee angle
+                time.sleep(0.1) # sleep for 0.1 seconds
+'''
 def moveBackDance():
     lowLeft.angle = 90
     lowRight.angle = 90
@@ -83,6 +76,7 @@ def moveBackDance():
 
 def moveForwardDance():
     return
+'''
 
 dance3()
 
