@@ -1,8 +1,6 @@
 import board
 import displayio
 import adafruit_imageload
- 
-display = board.DISPLAY
 
 # Release any resources currently in use for the displays
 displayio.release_displays()
