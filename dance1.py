@@ -27,39 +27,33 @@ def dance1():
     upRight.angle = 90 # set right knee angle
     time.sleep(1) # sleep for 1 second
     while True:
-        for angle in range(60, 120, 20):  # 60 - 120 degrees, 20 degrees at a time.
-            lowLeft.angle = angle # set left foot angle
-            time.sleep(0.1) # sleep for 0.1 seconds
-            lowRight.angle = 180 - angle # set right foot angle
-            time.sleep(0.1) # sleep for 0.1 seconds
-        for angle in range(120, 60, -20):  # 120 - 60 degrees, 20 degrees at a time.
-            lowLeft.angle = angle # set left foot angle
-            time.sleep(0.1) # sleep for 0.1 seconds
-            lowRight.angle = 180 - angle # set right foot angle
-            time.sleep(0.1) # sleep for 0.1 seconds
-        for angle in range(60, 120, 20):  # 60 - 120 degrees, 20 degrees at a time.
-            upLeft.angle = angle # set left knee angle
-            time.sleep(0.1) # sleep for 0.1 seconds
-            upRight.angle = 180 - angle # set right knee angle
-            time.sleep(0.1) # sleep for 0.1 seconds
-        for angle in range(120, 60, -20):  # 120 - 60 degrees, 20 degrees at a time.
-            upLeft.angle = angle # set left knee angle
-            time.sleep(0.05) # sleep for 0.05 seconds
-            upRight.angle = 180 - angle # set right knee angle
-            time.sleep(0.05) # sleep for 0.05 seconds
-        for angle in range(60, 120, 5): # 60 - 120 degrees, 5 degrees at a time.
-            lowLeft.angle = angle # set left foot angle
-            lowRight.angle = 180 - angle # set right foot angle
-            upLeft.angle = angle # set left knee angle
-            upRight.angle = 180 - angle # set right knee angle
-            time.sleep(0.05) # sleep for 0.05 seconds
-        for angle in range(120, 60, -5):# 120 - 60 degrees, 5 degrees at a time.
-            lowLeft.angle = angle # set left foot angle
-            lowRight.angle = 180 - angle # set right foot angle
-            upLeft.angle = angle # set left knee angle
-            upRight.angle = 180 - angle # set right knee angle
-            time.sleep(0.05) # sleep for 0.05 seconds
+        for num in range(5):
+            lowLeft.angle = 60 # set left foot
+            time.sleep(0.15) # sleep for 0.15 seconds
+            lowLeft.angle = 120 # set left foot angle
+            time.sleep(0.15) # sleep for 0.15 seconds
+            lowLeft.angle = 60 # set left foot angle
+        lowLeft.angle = 90 # set left foot angle
+        for num in range(5):
+            upLeft.angle = 60 # set left knee angle
+            time.sleep(0.15) # sleep for 0.15 seconds
+            upLeft.angle = 120 # set left knee angle
+            time.sleep(0.15) # sleep for 0.15 seconds
+            upLeft.angle = 60 # set left knee angle
 
+        for num in range(5):
+            lowRight.angle = 120 # set right foot angle
+            time.sleep(0.15) # sleep for 0.15 seconds
+            lowRight.angle = 60 # set right foot angle
+            time.sleep(0.15) # sleep for 0.15 seconds
+            lowRight.angle = 120 # set right foot angle
+        lowRight.angle = 90 # set right foot angle
+        for num in range(5):
+            upRight.angle = 120 # set right knee angle
+            time.sleep(0.15) # sleep for 0.15 seconds
+            upRight.angle = 60 # set right knee angle
+            time.sleep(0.15) # sleep for 0.15 seconds
+            upRight.angle = 120 # set right knee angle
 dance1()
 
 

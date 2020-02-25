@@ -28,27 +28,25 @@ def dance5():
     upRight.angle = 90 # set right knee angle
     time.sleep(1) # sleep for 1 second
     while True:
-            # tap the right foot
-            lowRight.angle = 60 # set right foot angle
+        count = 0
+        # this dance makes it shift backwards
+        while count < 5:
+            upRight.angle = 60 # set right knee angle
+            upLeft.angle = 60 # set left knee angle
+            time.sleep(0.2) # sleep for 0.2 secnods
+            upLeft.angle = 120 # set left knee angle
+            upRight.angle = 120 # set right knee angle
+            time.sleep(0.2) # sleep for 0.2 secnods
+            upRight.angle = 60 # set right knee angle
+            upLeft.angle = 60 # set left knee angle
+            time.sleep(0.2) # sleep for 0.2 secnods
+            upRight.angle = 120 # set right knee angle
+            upLeft.angle = 120 # set left knee angle
+            time.sleep(0.2) # sleep for 0.2 secnods
+            upRight.angle = 60 # set right knee angle
+            upLeft.angle = 60 # set left knee angle
             time.sleep(0.2) # sleep for 0.2 seconds
-            lowRight.angle = 120 # set right foot angle
-            time.sleep(0.2) # sleep for 0.2 seconds
-            lowRight.angle = 60 # set right foot angle
-            time.sleep(0.2) # sleep for 0.2 seconds
-            lowRight.angle = 120 # set right foot angle
-            time.sleep(0.2) # sleep for 0.2 seconds
-            lowRight.angle = 90 # set right foot angle
-            
-            # tap the left foot
-            lowLeft.angle = 60 # set left foot angle
-            time.sleep(0.2) # sleep for 0.2 seconds
-            lowLeft.angle = 120 # set left foot angle
-            time.sleep(0.2) # sleep for 0.2 seconds
-            lowLeft.angle = 60 # set left foot angle
-            time.sleep(0.2) # sleep for 0.2 seconds
-            lowLeft.angle = 120 # set left foot angle
-            time.sleep(0.2) # sleep for 0.2 seconds
-            lowLeft.angle = 90 # set left foot angle
+            count += 1 # increase count by 1
             
             
 dance5()

@@ -25,41 +25,32 @@ def dance2():
     upRight.angle = 90 # set right knee angle
     time.sleep(1) # sleep for 1 second
     while True:
-        # tap left foot
-        for num in range(5):
-            lowLeft.angle = 60 # set left foot angle
-            time.sleep(0.15) # sleep for 0.15 seconds
-            lowLeft.angle = 120 # set left foot angle
-            time.sleep(0.15) # sleep for 0.15 seconds
-            lowLeft.angle = 60 # set left foot angle
-        lowLeft.angle = 90
-        # shake right foot
-        for num in range(5):
-            upLeft.angle = 60 # left knee angle
-            time.sleep(0.1) # sleep for 0.1 seconds
-            upLeft.angle = 120 # set left knee angle
-            time.sleep(0.1) # sleep for 0.1 seconds
-            upLeft.angle = 60 # set left knee angle
-
-        # tap right foot
-        for num in range(5):
-            lowRight.angle = 120 # set right foot angle
-            time.sleep(0.15) # sleep for 0.15 seconds
+        count = 0
+        while count < 2:
+            # run this loop twice
+            upLeft.angle = 130 # set left knee anlge
+            upRight.angle = 50 # set right knee angle
+            time.sleep(0.5) # sleep for 0.5 seconds
+            upLeft.angle = 50 # set left knee angle
+            upRight.angle = 130 # set right knee angle
+            time.sleep(0.5) # sleep for 0.5 seconds
+            lowLeft.angle = 110 # set left foot angle
+            time.sleep(0.5) # sleep for 0.5 seconds
+            lowLeft.angle = 90 # set left foot angle
             lowRight.angle = 60 # set right foot angle
-            time.sleep(0.15) # sleep for 0.15 seconds
-            lowRight.angle = 120 # set right foot anlge
-        lowRight.angle = 90
-        # shake left foot
-        for num in range(5):
-            upRight.angle = 120 # set right knee angle
-            time.sleep(0.1) # sleep for 0.1 seconds
-            upRight.angle = 60 # set right knee angle
-            time.sleep(0.1) # sleep for 0.1 seconds
-            upRight.angle = 120 # set right knee angle
-        # set position to forward facing
-        lowLeft.angle = 90 # set left foot angle
-        lowRight.angle = 90 # set right foot angle
-        upLeft.angle = 90 # set left knee angle
-        upRight.angle = 90 # set right knee angle
-        time.sleep(1) # sleep for 1 second
+            time.sleep(0.5) # sleep for 0.5 seconds
+            lowRight.angle = 90 # set right foot angle
+            lowLeft.angle = 110 # set left foot angle
+            time.sleep(0.5) # sleep for 0.5 seconds
+            lowLeft.angle = 90 # set left foot angle
+            lowRight.angle = 60 # set right foot angle
+            time.sleep(0.5) # sleep for 0.5 seconds
+            lowRight.angle = 90 # set right foot angle
+            lowLeft.angle = 110 # set left foot angle
+            time.sleep(0.5) # sleep for 0.5 seconds
+            lowLeft.angle = 90 # set left foot angle
+            lowRight.angle = 60 # set right foot angle
+            time.sleep(0.5) # sleep for 0.5 seconds
+            lowRight.angle = 90 # set right foot angle
+            count += 1 # increases count by 1
 dance2()
