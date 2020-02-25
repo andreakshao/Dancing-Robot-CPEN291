@@ -14,7 +14,7 @@ display_bus = displayio.FourWire(spi, command=tft_dc, chip_select=tft_cs, reset=
 
 display = ST7735R(display_bus, width=128, height=128, colstart=2, rowstart=1)
  
-bitmap, palette = adafruit_imageload.load("/helloimbub.bmp",
+bitmap, palette = adafruit_imageload.load("/helloimbub" + (str(i+1)) + ".bmp",
                                          bitmap=displayio.Bitmap,
                                          palette=displayio.Palette)
  
