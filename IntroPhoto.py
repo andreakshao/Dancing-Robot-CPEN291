@@ -14,7 +14,7 @@ display_bus = displayio.FourWire(spi, command=tft_dc, chip_select=tft_cs, reset=
 
 display = ST7735R(display_bus, width=128, height=128, colstart=2, rowstart=1)
  
-bitmap, palette = adafruit_imageload.load("/Smile.bmp", bitmap=displayio.Bitmap, palette=displayio.Palette)
+bitmap, palette = adafruit_imageload.load("/smile-8bpp.bmp", bitmap=displayio.Bitmap, palette=displayio.Palette)
  
 # Create a TileGrid to hold the bitmap
 tile_grid = displayio.TileGrid(bitmap, pixel_shader=palette)
