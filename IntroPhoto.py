@@ -1,15 +1,16 @@
 import board
 import displayio
 import adafruit_imageload
+from adafruit_st7735r import ST7735R
 
 # Release any resources currently in use for the displays
 displayio.release_displays()
 
 spi = board.SPI()
 tft_cs = board.D11
-tft_dc = board.D7
+tft_dc = board.D9
 
-display_bus = displayio.FourWire(spi, command=tft_dc, chip_select=tft_cs, reset=board.D5)
+display_bus = displayio.FourWire(spi, command=tft_dc, chip_select=tft_cs, reset=board.D7)
 
 display = ST7735R(display_bus, width=128, height=128, colstart=2, rowstart=1)
  
