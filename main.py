@@ -450,6 +450,8 @@ def dance3():
                 miiProgram() # if the distance is less than 4cm run the miiProgram
         except RuntimeError:
             print("Retrying!") # error message
+            lowLeft.angle = 90
+            lowRight.angle = 90
 
     for num in range(120, 60, -20):
         upRight.angle = num # set right knee angle
