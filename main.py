@@ -36,19 +36,27 @@ tft_dc = board.D9
 # setting up the LCD board so the code knows the size of the screen
 display_bus = displayio.FourWire(spi, command=tft_dc, chip_select=tft_cs, reset=board.D7)
 display = ST7735R(display_bus, width=128, height=128)
+ 
+bitmap, palette = adafruit_imageload.load("/smile-8bpp.bmp", bitmap=displayio.Bitmap, palette=displayio.Palette)
+ 
+# Create a TileGrid to hold the bitmap
+tile_grid = displayio.TileGrid(bitmap, pixel_shader=palette)
+ 
+# Create a Group to hold the TileGrid
+group = displayio.Group()
+ 
+# Add the TileGrid to the Group
+group.append(tile_grid)
+ 
+# Add the Group to the Display
+display.show(group)
 
 # Make the display context
 splash = displayio.Group(max_size=20)
 my_label = label.Label(terminalio.FONT, text="My Label Text", color=0xFFFFFF, x = 40, y = 40)
 splash.append(my_label)
-display.show(splash)
+# display.show(splash)
 
-# setting up text to display on LCD
-text = "Hello world"
-text_area = label.Label(terminalio.FONT, text=text)
-text_area.x = 30
-text_area.y = 60
-display.show(text_area)
 
 # Define pin connected to piezo buzzer.
 # creating a bunch of note varriables to help create the song
@@ -237,7 +245,7 @@ def dance1():
     index = 0 # this is the very first dance move. Set index to zero so restart the shooting star song
 
     # setting up text to display on LCD
-    text = "Starting Dance1!"
+    text = "Starting Dance 1!"
     text_area = label.Label(terminalio.FONT, text=text)
     text_area.x = 30
     text_area.y = 60
