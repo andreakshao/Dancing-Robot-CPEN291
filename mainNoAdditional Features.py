@@ -53,29 +53,6 @@ display.show(text_area)
 
 index = 0
 def dance1():
-    print("Dance 1") # print the word Dance 1
-    for angle in range(70, 110, 20):  # 70 - 110 degrees, 20 degrees at a time.
-        lowLeft.angle = angle # set the bottom left foot to the angle 70 degrees
-        time.sleep(0.1) # sleep for 0.1 seconds
-        lowRight.angle = 180 - angle #set the angle of the lower right foot to be 180 - the current angle.
-        time.sleep(0.1) # sleep for 0.1 seconds
-    for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
-        lowLeft.angle = angle # move left foot
-        time.sleep(0.1) # sleep for 0.1 seconds
-        lowRight.angle = 180 - angle # move right foot
-        time.sleep(0.1) # sleep for 0.1 seconds
-    for angle in range(70, 110, 20):  # 30 - 150 degrees, 5 degrees at a time.
-        upLeft.angle = angle # move left knee
-        time.sleep(0.1) # sleep for 0.1 seconds
-        upRight.angle = 180 - angle # move right knee
-        time.sleep(0.1) # sleep for 0.1 seconds
-    for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
-        upLeft.angle = angle # move left knee
-        time.sleep(0.1) # sleep for 0.1 seconds
-        upRight.angle = 180 - angle # move right knee
-        time.sleep(0.1) # sleep for 0.1 seconds
-
-def dance2():
     lowLeft.angle = 90 # set angle of left foot
     lowRight.angle = 90 # set angle of right foot
     upLeft.angle = 90 # set angle of left knee
@@ -107,6 +84,29 @@ def dance2():
         upRight.angle = 60 # set right knee angle
         time.sleep(0.15) # sleep for 0.15 seconds
         upRight.angle = 120 # set right knee angle
+
+def dance2():
+    print("Dance 1") # print the word Dance 1
+    for angle in range(70, 110, 20):  # 70 - 110 degrees, 20 degrees at a time.
+        lowLeft.angle = angle # set the bottom left foot to the angle 70 degrees
+        time.sleep(0.1) # sleep for 0.1 seconds
+        lowRight.angle = 180 - angle #set the angle of the lower right foot to be 180 - the current angle.
+        time.sleep(0.1) # sleep for 0.1 seconds
+    for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
+        lowLeft.angle = angle # move left foot
+        time.sleep(0.1) # sleep for 0.1 seconds
+        lowRight.angle = 180 - angle # move right foot
+        time.sleep(0.1) # sleep for 0.1 seconds
+    for angle in range(70, 110, 20):  # 30 - 150 degrees, 5 degrees at a time.
+        upLeft.angle = angle # move left knee
+        time.sleep(0.1) # sleep for 0.1 seconds
+        upRight.angle = 180 - angle # move right knee
+        time.sleep(0.1) # sleep for 0.1 seconds
+    for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
+        upLeft.angle = angle # move left knee
+        time.sleep(0.1) # sleep for 0.1 seconds
+        upRight.angle = 180 - angle # move right knee
+        time.sleep(0.1) # sleep for 0.1 seconds
 
 def dance3():
     print("Dance 3")
