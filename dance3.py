@@ -33,6 +33,8 @@ def dance3():
             upLeft.angle = num # set left knee angle
             upRight.angle = 180 - num # set right knee angle
             time.sleep(0.1) # sleep for 0.1 seconds
+            lowLeft.angle = 90
+            lowRight.angle = 90
 
         for num in range(120, 60, -20): # 60 - 120 degrees, 20 degrees at a time.
             upRight.angle = num # set right knee angle

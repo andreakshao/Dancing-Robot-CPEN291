@@ -136,6 +136,8 @@ def dance3():
             upLeft.angle = num # set left knee angle
             upRight.angle = 180 - num # set right knee angle
             time.sleep(0.2) # sleep for 0.2 seconds
+            lowLeft.angle = 90
+            lowRight.angle = 90
 
         for num in range(120, 60, -20):
             upRight.angle = num # set right knee angle
@@ -286,21 +288,21 @@ time.sleep(1) # sleep for one second
 while True:
     pass
     # this is our main function. It runs on a loop and has all our dances
-    dance1() # dance 1
-    time.sleep(1) # wait one second inbetween each dance move
-    dance2() # dance 2
-    time.sleep(1) # wait one second inbetween each dance move
+    #dance1() # dance 1
+    #time.sleep(1) # wait one second inbetween each dance move
+    #dance2() # dance 2
+    #time.sleep(1) # wait one second inbetween each dance move
     dance3() # dance 3
     time.sleep(1) # wait one second inbetween each dance move
-    dance4() # dance 4
-    time.sleep(1) # wait one second inbetween each dance move
-    dance5() # dance 5
-    time.sleep(1) # wait one second inbetween each dance move
-    dance6() # dance 6
-    time.sleep(1) # wait one second inbetween each dance move
+    #dance4() # dance 4
+    #time.sleep(1) # wait one second inbetween each dance move
+    #dance5() # dance 5
+    #time.sleep(1) # wait one second inbetween each dance move
+    #dance6() # dance 6
+    #time.sleep(1) # wait one second inbetween each dance move
     # do the splits
-    upLeft.angle = 90 # set left knee angle
-    upRight.angle = 90 # set right knee angle
-    lowLeft.angle = 160 # set left foot angle
-    lowRight.angle = 20 # set right foot angle
-    time.sleep(5) # wait 5 seconds to restart the dance
+    #upLeft.angle = 90 # set left knee angle
+    #upRight.angle = 90 # set right knee angle
+    #lowLeft.angle = 160 # set left foot angle
+    #lowRight.angle = 20 # set right foot angle
+    #time.sleep(5) # wait 5 seconds to restart the dance
