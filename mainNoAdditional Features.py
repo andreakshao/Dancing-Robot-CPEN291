@@ -116,7 +116,7 @@ def dance3():
     upLeft.angle = 90 # set angle of left knee
     upRight.angle = 90 # set angle of right foot
     time.sleep(0.1) # sleep for 0.1 seconds
-    while count < 10: # run this set of moves 10 times
+    while count < 5: # run this set of moves 10 times
         for num in range(60, 120, 20):
             if num % 40 == 0:
                 # if num is a multiple of 40 do the following
@@ -205,27 +205,25 @@ def dance4():
 
 def dance5():
     print("Dance 5")
-    lowRight.angle = 60 # set right foot angle
-    time.sleep(0.2) # sleep for 0.2 seconds
-    lowRight.angle = 120 # set right foot angle
-    time.sleep(0.2) # sleep for 0.2 seconds
-    lowRight.angle = 60 # set right foot angle
-    time.sleep(0.2) # sleep for 0.2 seconds
-    lowRight.angle = 120 # set right foot angle
-    time.sleep(0.2) # sleep for 0.2 seconds
-    lowRight.angle = 90 # set right foot angle
-    time.sleep(0.2) # sleep for 0.2 seconds
-
-    lowLeft.angle = 60 # set left foot angle
-    time.sleep(0.2) # sleep for 0.2 seconds
-    lowLeft.angle = 120 # set left foot angle
-    time.sleep(0.2) # sleep for 0.2 seconds
-    lowLeft.angle = 60 # set left foot angle
-    time.sleep(0.2) # sleep for 0.2 seconds
-    lowLeft.angle = 120 # set left foot angle
-    time.sleep(0.2) # sleep for 0.2 seconds
-    lowLeft.angle = 90 # set left foot angle
-    time.sleep(0.2) # sleep for 0.2 seconds
+    count = 0
+    # this dance makes it shift backwards
+    while count < 5:
+        upRight.angle = 60 # set right knee angle
+        upLeft.angle = 60 # set left knee angle
+        time.sleep(0.2) # sleep for 0.2 secnods
+        upLeft.angle = 120 # set left knee angle
+        upRight.angle = 120 # set right knee angle
+        time.sleep(0.2) # sleep for 0.2 secnods
+        upRight.angle = 60 # set right knee angle
+        upLeft.angle = 60 # set left knee angle
+        time.sleep(0.2) # sleep for 0.2 secnods
+        upRight.angle = 120 # set right knee angle
+        upLeft.angle = 120 # set left knee angle
+        time.sleep(0.2) # sleep for 0.2 secnods
+        upRight.angle = 60 # set right knee angle
+        upLeft.angle = 60 # set left knee angle
+        time.sleep(0.2) # sleep for 0.2 seconds
+        count += 1 # increase count by 1
 
 def dance6():
     print("Dance 6")

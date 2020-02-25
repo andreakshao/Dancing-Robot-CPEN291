@@ -38,5 +38,6 @@ def dance8():
         time.sleep(0.2) # sleep for 0.2 secnods
         upRight.angle = 60 # set right knee angle
         upLeft.angle = 60 # set left knee angle
+        time.sleep(0.2)
         
 dance8()
