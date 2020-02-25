@@ -215,7 +215,6 @@ def miiProgram():
         for index in range(0, len(miiChannelBeats), 1):
             simpleio.tone(PIEZO_PIN, miiChannelNotes[index], duration=(miiChannelBeats[index])/1.5) # play the miiChannel Song
             try:
-                print((sonar.distance))
                 if (sonar.distance > 25):
                     return 0 # if the distance of the sonar is greater than 25cm stop playing the song
             except RuntimeError:
@@ -236,84 +235,6 @@ def dance1():
     display.show(text_area)
     
     print("Dance 1") # print the word Dance 1
-    for angle in range(70, 110, 20):  # 70 - 110 degrees, 20 degrees at a time.
-        lowLeft.angle = angle # set the bottom left foot to the angle 70 degrees
-        # Because we only have one processor and we want to do two things at the same time we make it seem like it is threading
-        # so we play the buzzer
-        # the buzzer is given a note from the list shootingStarsNotes and its corresponding duration from shootingStarsBeats
-        # both of these places are determined by the global varrialbe index which is increased by 1 after each note
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the note
-        index = index + 1 # increase the index
-        try:
-            distance = sonar.distance # get the distance from the sonar
-            # check if distance is less than 4cm
-            if (distance < 4):
-                miiProgram() # if the sonor distance is less than 4cm run the miiProgram
-        except RuntimeError:
-            print("Retrying!") # error message
-        lowRight.angle = 180 - angle #set the angle of the lower right foot to be 180 - the current angle.
-        # explained more indepth above
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
-        index = index + 1 #add one to index
-        try:
-            distance = sonar.distance # get the distance from the sonar
-            if (distance < 4):
-                miiProgram() # if the distance is less than 4cm run the miiProgram
-        except RuntimeError:
-            print("Retrying!") # error message
-    for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
-        lowLeft.angle = angle # move left foot
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
-        index = index + 1 #add one to index
-        lowRight.angle = 180 - angle # move right foot
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
-        index = index + 1 #add one to index
-        try:
-            distance = sonar.distance # get the distance from the sonar
-            if (distance < 4):
-                miiProgram() # if the distance is less than 4cm run the miiProgram
-        except RuntimeError:
-            print("Retrying!") # error message
-    for angle in range(70, 110, 20):  # 30 - 150 degrees, 5 degrees at a time.
-        upLeft.angle = angle # move left knee
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
-        index = index + 1 #add one to index
-        upRight.angle = 180 - angle # move right knee
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
-        index = index + 1 #add one to index
-        try:
-            distance = sonar.distance # get the distance from the sonar
-            if (distance < 4):
-                miiProgram() # if the distance is less than 4cm run the miiProgram
-        except RuntimeError:
-            print("Retrying!") # error message
-    for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
-        upLeft.angle = angle # move left knee
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
-        index = index + 1 #add one to index
-        upRight.angle = 180 - angle # move right knee
-        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
-        index = index + 1 #add one to index
-        try:
-            distance = sonar.distance # get the distance from the sonar
-            if (distance < 4):
-                miiProgram() # if the distance is less than 4cm run the miiProgram
-        except RuntimeError:
-            print("Retrying!") # error message
-
-def dance2():
-    global index # make sure the global varriable index can be accessed 
-    if (index >= len(shootingStarsBeats) - 10):
-        index = 0 # if index is greater than the shootingStar song restart the song
-
-    # setting up text to display on LCD
-    text = "Starting Dance 2!"
-    text_area = label.Label(terminalio.FONT, text=text)
-    text_area.x = 30
-    text_area.y = 60
-    display.show(text_area)
-    
-    print("Dance 2")
     lowLeft.angle = 90 # set angle of left foot
     lowRight.angle = 90 # set angle of right foot
     upLeft.angle = 90 # set angle of left knee
@@ -369,7 +290,6 @@ def dance2():
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         try:
-            print((sonar.distance))
             if (sonar.distance < 4):
                 miiProgram() # if the distance is less than 4cm run the miiProgram
         except RuntimeError:
@@ -379,9 +299,114 @@ def dance2():
         index = index + 1 # increase the index by 1
         upRight.angle = 120 # set right knee angle
 
+
+def dance2():
+    global index # make sure the global varriable index can be accessed 
+    if (index >= len(shootingStarsBeats) - 30):
+        index = 0 # if index is greater than the shootingStar song restart the song
+    lowLeft.angle = 90 # set left foot angle
+    lowRight.angle = 90 # set right foot angle
+    upLeft.angle = 90 # set left knee angle
+    upRight.angle = 90 # set right knee angle
+    time.sleep(0.1) # sleep for 1 second
+    
+    count = 0
+    while count < 2:
+        # run this loop twice
+        upLeft.angle = 130 # set left knee anlge
+        upRight.angle = 50 # set right knee angle
+        try:
+            if (sonar.distance < 4):
+                miiProgram() # if the distance is less than 4cm run the miiProgram
+        except RuntimeError:
+            print("Retrying!") # error message
+
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
+        index = index + 1 # increase the index by 1
+        upLeft.angle = 50 # set left knee angle
+        upRight.angle = 130 # set right knee angle
+        try:
+            if (sonar.distance < 4):
+                miiProgram() # if the distance is less than 4cm run the miiProgram
+        except RuntimeError:
+            print("Retrying!") # error message
+
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
+        index = index + 1 # increase the index by 1
+        lowLeft.angle = 110 # set left foot angle
+        try:
+            if (sonar.distance < 4):
+                miiProgram() # if the distance is less than 4cm run the miiProgram
+        except RuntimeError:
+            print("Retrying!") # error message
+
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
+        index = index + 1 # increase the index by 1
+        lowLeft.angle = 90 # set left foot angle
+        lowRight.angle = 60 # set right foot angle
+        try:
+            if (sonar.distance < 4):
+                miiProgram() # if the distance is less than 4cm run the miiProgram
+        except RuntimeError:
+            print("Retrying!") # error message
+
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
+        index = index + 1 # increase the index by 1
+        lowRight.angle = 90 # set right foot angle
+        lowLeft.angle = 110 # set left foot angle
+        try:
+            if (sonar.distance < 4):
+                miiProgram() # if the distance is less than 4cm run the miiProgram
+        except RuntimeError:
+            print("Retrying!") # error message
+
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
+        index = index + 1 # increase the index by 1
+        lowLeft.angle = 90 # set left foot angle
+        lowRight.angle = 60 # set right foot angle
+        try:
+            if (sonar.distance < 4):
+                miiProgram() # if the distance is less than 4cm run the miiProgram
+        except RuntimeError:
+            print("Retrying!") # error message
+
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
+        index = index + 1 # increase the index by 1
+        lowRight.angle = 90 # set right foot angle
+        lowLeft.angle = 110 # set left foot angle
+        try:
+            if (sonar.distance < 4):
+                miiProgram() # if the distance is less than 4cm run the miiProgram
+        except RuntimeError:
+            print("Retrying!") # error message
+
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
+        index = index + 1 # increase the index by 1
+        lowLeft.angle = 90 # set left foot angle
+        lowRight.angle = 60 # set right foot angle
+        try:
+            if (sonar.distance < 4):
+                miiProgram() # if the distance is less than 4cm run the miiProgram
+        except RuntimeError:
+            print("Retrying!") # error message
+
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
+        index = index + 1 # increase the index by 1
+        lowRight.angle = 90 # set right foot angle
+        count += 1 # increases count by 1
+
+    # setting up text to display on LCD
+    text = "Starting Dance 2!"
+    text_area = label.Label(terminalio.FONT, text=text)
+    text_area.x = 30
+    text_area.y = 60
+    display.show(text_area)
+    
+    print("Dance 2")
+
 def dance3():
     global index # make sure the global varriable index can be accessed 
-    if (index >= len(shootingStarsBeats) - 10):
+    if (index >= len(shootingStarsBeats) - 30):
         index = 0 # if index is greater than the shootingStar song restart the song
 
     # setting up text to display on LCD
@@ -452,7 +477,7 @@ def dance3():
 
 def dance4():
     global index # make sure the global varriable index can be accessed 
-    if (index >= len(shootingStarsBeats) - 20):
+    if (index >= len(shootingStarsBeats) - 30):
         index = 0 # if index is greater than the shootingStar song restart the song
 
     # setting up text to display on LCD
@@ -610,7 +635,7 @@ def dance4():
 
 def dance5():
     global index # make sure the global varriable index can be accessed 
-    if (index >= len(shootingStarsBeats) - 10):
+    if (index >= len(shootingStarsBeats) - 30):
         index = 0 # if index is greater than the shootingStar song restart the song
 
     # setting up text to display on LCD
@@ -621,63 +646,59 @@ def dance5():
     display.show(text_area)
     
     print("Dance 5")
-    lowRight.angle = 60 # set right foot angle
-    # Because we only have one processor and we want to do two things at the same time we make it seem like it is threading
-    # so we play the buzzer
-    # the buzzer is given a note from the list shootingStarsNotes and its corresponding duration from shootingStarsBeats
-    # both of these places are determined by the global varrialbe index which is increased by 1 after each note
-    simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
-    index = index + 1 # increase the index by 1
-    try:
-        if (sonar.distance < 4):
-            miiProgram() # if the distance is less than 4cm run the miiProgram
-    except RuntimeError:
-        print("Retrying!") # error message
-    lowRight.angle = 120 # set right foot angle
-    simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
-    index = index + 1 # increase the index by 1
-    lowRight.angle = 60
-    simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
-    index = index + 1 # increase the index by 1
-    try:
-        if (sonar.distance < 4):
-            miiProgram() # if the distance is less than 4cm run the miiProgram
-    except RuntimeError:
-        print("Retrying!") # error message
-    lowRight.angle = 120 # set right foot angle
-    simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
-    index = index + 1 # increase the index by 1
-    lowRight.angle = 90 # set right foot angle
-    simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
-    index = index + 1  # increase the index by 1 
-    lowLeft.angle = 60 # set left foot angle
-    simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
-    index = index + 1 # increase the index by 1
-    try:
-        if (sonar.distance < 4):
-            miiProgram() # if the distance is less than 4cm run the miiProgram
-    except RuntimeError:
-        print("Retrying!") # error message
-    lowLeft.angle = 120 # set left foot angle
-    simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
-    index = index + 1 # increase the index by 1
-    lowLeft.angle = 60 # set left foot angle
-    simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
-    index = index + 1 # increase the index by 1
-    try:
-
-        if (sonar.distance < 4):
-            miiProgram() # if the distance is less than 4cm run the miiProgram
-    except RuntimeError:
-        print("Retrying!") # error message
-    lowLeft.angle = 120 # set left foot angle
-    simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
-    index = index + 1 # increase the index by 1
-    lowLeft.angle = 90 # set left foot angle
+    count = 0
+    # this dance makes it shift backwards
+    while count < 5:
+        upRight.angle = 60 # set right knee angle
+        upLeft.angle = 60 # set left knee angle
+        try:
+            if (sonar.distance < 4):
+                miiProgram() # if the distance is less than 4cm run the miiProgram
+        except RuntimeError:
+            print("Retrying!") # error message
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
+        index = index + 1 # increase the index by 1
+        upLeft.angle = 120 # set left knee angle
+        upRight.angle = 120 # set right knee angle
+        try:
+            if (sonar.distance < 4):
+                miiProgram() # if the distance is less than 4cm run the miiProgram
+        except RuntimeError:
+            print("Retrying!") # error message
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
+        index = index + 1 # increase the index by 1
+        upRight.angle = 60 # set right knee angle
+        upLeft.angle = 60 # set left knee angle
+        try:
+            if (sonar.distance < 4):
+                miiProgram() # if the distance is less than 4cm run the miiProgram
+        except RuntimeError:
+            print("Retrying!") # error message
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
+        index = index + 1 # increase the index by 1
+        upRight.angle = 120 # set right knee angle
+        upLeft.angle = 120 # set left knee angle
+        try:
+            if (sonar.distance < 4):
+                miiProgram() # if the distance is less than 4cm run the miiProgram
+        except RuntimeError:
+            print("Retrying!") # error message
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
+        index = index + 1 # increase the index by 1
+        upRight.angle = 60 # set right knee angle
+        upLeft.angle = 60 # set left knee angle
+        try:
+            if (sonar.distance < 4):
+                miiProgram() # if the distance is less than 4cm run the miiProgram
+        except RuntimeError:
+            print("Retrying!") # error message
+        simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
+        index = index + 1 # increase the index by 1
+        count += 1 # increase count by 1
 
 def dance6():
     global index # make sure the global varriable index can be accessed 
-    if (index >= len(shootingStarsBeats) - 10):
+    if (index >= len(shootingStarsBeats) - 30):
         index = 0 # if index is greater than the shootingStar song restart the song
 
     # setting up text to display on LCD
@@ -768,7 +789,7 @@ def dance6():
         except RuntimeError:
             print("Retrying!") # error message
         count+=1 # increase the count by 1
-        
+
 lowLeft.angle = 90 # set left foot angle
 lowRight.angle = 90 # set right foot angle
 upLeft.angle = 90 # set left knee angle
@@ -783,3 +804,10 @@ while True:
     dance4() # dance 4
     dance5() # dance 5
     dance6() # dance 6
+    time.sleep(0.5)
+    # do the splits
+    upLeft.angle = 90 # set left knee angle
+    upRight.angle = 90 # set right knee angle
+    lowLeft.angle = 160 # set left foot angle
+    lowRight.angle = 20 # set right foot angle
+    time.sleep(5) # wait 5 seconds to restart the dance
