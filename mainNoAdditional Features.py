@@ -49,9 +49,7 @@ text_area = label.Label(terminalio.FONT, text=text)
 text_area.x = 30
 text_area.y = 60
 display.show(text_area)
-        
 
-index = 0
 def dance1():
     lowLeft.angle = 90 # set angle of left foot
     lowRight.angle = 90 # set angle of right foot
@@ -86,8 +84,7 @@ def dance1():
         upRight.angle = 120 # set right knee angle
 
 def dance2():
-    print("Dance 1") # print the word Dance 1
-    count = 0
+    count = 0 # set count to zero
     while count < 2:
         # run this loop twice
         upLeft.angle = 130 # set left knee anlge
@@ -117,8 +114,7 @@ def dance2():
         count += 1 # increases count by 1
 
 def dance3():
-    print("Dance 3")
-    count = 0
+    count = 0 # set count to zero
     lowLeft.angle = 90 # set angle of left foot
     lowRight.angle = 90 # set angle of right foot
     upLeft.angle = 90 # set angle of left knee
@@ -136,8 +132,8 @@ def dance3():
             upLeft.angle = num # set left knee angle
             upRight.angle = 180 - num # set right knee angle
             time.sleep(0.2) # sleep for 0.2 seconds
-            lowLeft.angle = 90
-            lowRight.angle = 90
+            lowLeft.angle = 90 # set left foot angle
+            lowRight.angle = 90 # set right foot angle
 
         for num in range(120, 60, -20):
             upRight.angle = num # set right knee angle
@@ -153,8 +149,6 @@ def dance3():
         count += 1 # increase count by 1
 
 def dance4():
-    
-    print("Dance 4")
     for angle in range(70, 110, 20):  # 30 - 150 degrees, 5 degrees at a time.
         lowLeft.angle = angle # set left foot angle
         time.sleep(0.1) # sleep for 0.1 seconds
@@ -214,8 +208,7 @@ def dance4():
     time.sleep(0.15) # sleep for 0.15 seconds
 
 def dance5():
-    print("Dance 5")
-    count = 0
+    count = 0 # set count equal to zero
     # this dance makes it shift backwards
     while count < 5:
         upRight.angle = 60 # set right knee angle
@@ -236,7 +229,6 @@ def dance5():
         count += 1 # increase count by 1
 
 def dance6():
-    print("Dance 6")
     count = 0 # set count to 0
     lowLeft.angle = 90 # set left foot angle
     lowRight.angle = 90 # set right foot angle
@@ -288,21 +280,21 @@ time.sleep(1) # sleep for one second
 while True:
     pass
     # this is our main function. It runs on a loop and has all our dances
-    #dance1() # dance 1
-    #time.sleep(1) # wait one second inbetween each dance move
-    #dance2() # dance 2
-    #time.sleep(1) # wait one second inbetween each dance move
+    dance1() # dance 1
+    time.sleep(1) # wait one second inbetween each dance move
+    dance2() # dance 2
+    time.sleep(1) # wait one second inbetween each dance move
     dance3() # dance 3
     time.sleep(1) # wait one second inbetween each dance move
-    #dance4() # dance 4
-    #time.sleep(1) # wait one second inbetween each dance move
-    #dance5() # dance 5
-    #time.sleep(1) # wait one second inbetween each dance move
-    #dance6() # dance 6
-    #time.sleep(1) # wait one second inbetween each dance move
-    # do the splits
-    #upLeft.angle = 90 # set left knee angle
-    #upRight.angle = 90 # set right knee angle
-    #lowLeft.angle = 160 # set left foot angle
-    #lowRight.angle = 20 # set right foot angle
-    #time.sleep(5) # wait 5 seconds to restart the dance
+    dance4() # dance 4
+    time.sleep(1) # wait one second inbetween each dance move
+    dance5() # dance 5
+    time.sleep(1) # wait one second inbetween each dance move
+    dance6() # dance 6
+    time.sleep(1) # wait one second inbetween each dance move
+    #do the splits
+    upLeft.angle = 90 # set left knee angle
+    upRight.angle = 90 # set right knee angle
+    lowLeft.angle = 160 # set left foot angle
+    lowRight.angle = 20 # set right foot angle
+    time.sleep(5) # wait 5 seconds to restart the dance
