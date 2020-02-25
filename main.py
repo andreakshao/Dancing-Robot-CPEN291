@@ -4,6 +4,7 @@ import displayio
 import terminalio
 from adafruit_display_text import label
 from adafruit_st7735r import ST7735R
+import adafruit_imageload
 import time
 import pulseio
 from adafruit_motor import servo
@@ -45,7 +46,7 @@ tile_grid = displayio.TileGrid(bitmap, pixel_shader=palette)
 # Create a Group to hold the TileGrid
 group = displayio.Group()
  
-# Add the TileGrid to the Group
+# Add to the Group
 group.append(tile_grid)
  
 # Add the Group to the Display
