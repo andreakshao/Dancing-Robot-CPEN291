@@ -87,26 +87,34 @@ def dance1():
 
 def dance2():
     print("Dance 1") # print the word Dance 1
-    for angle in range(70, 110, 20):  # 70 - 110 degrees, 20 degrees at a time.
-        lowLeft.angle = angle # set the bottom left foot to the angle 70 degrees
-        time.sleep(0.1) # sleep for 0.1 seconds
-        lowRight.angle = 180 - angle #set the angle of the lower right foot to be 180 - the current angle.
-        time.sleep(0.1) # sleep for 0.1 seconds
-    for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
-        lowLeft.angle = angle # move left foot
-        time.sleep(0.1) # sleep for 0.1 seconds
-        lowRight.angle = 180 - angle # move right foot
-        time.sleep(0.1) # sleep for 0.1 seconds
-    for angle in range(70, 110, 20):  # 30 - 150 degrees, 5 degrees at a time.
-        upLeft.angle = angle # move left knee
-        time.sleep(0.1) # sleep for 0.1 seconds
-        upRight.angle = 180 - angle # move right knee
-        time.sleep(0.1) # sleep for 0.1 seconds
-    for angle in range(110, 70, -20):  # 150 - 30 degrees, 5 degrees at a time.
-        upLeft.angle = angle # move left knee
-        time.sleep(0.1) # sleep for 0.1 seconds
-        upRight.angle = 180 - angle # move right knee
-        time.sleep(0.1) # sleep for 0.1 seconds
+    count = 0
+    while count < 2:
+        # run this loop twice
+        upLeft.angle = 130 # set left knee anlge
+        upRight.angle = 50 # set right knee angle
+        time.sleep(0.5) # sleep for 0.5 seconds
+        upLeft.angle = 50 # set left knee angle
+        upRight.angle = 130 # set right knee angle
+        time.sleep(0.5) # sleep for 0.5 seconds
+        lowLeft.angle = 110 # set left foot angle
+        time.sleep(0.5) # sleep for 0.5 seconds
+        lowLeft.angle = 90 # set left foot angle
+        lowRight.angle = 60 # set right foot angle
+        time.sleep(0.5) # sleep for 0.5 seconds
+        lowRight.angle = 90 # set right foot angle
+        lowLeft.angle = 110 # set left foot angle
+        time.sleep(0.5) # sleep for 0.5 seconds
+        lowLeft.angle = 90 # set left foot angle
+        lowRight.angle = 60 # set right foot angle
+        time.sleep(0.5) # sleep for 0.5 seconds
+        lowRight.angle = 90 # set right foot angle
+        lowLeft.angle = 110 # set left foot angle
+        time.sleep(0.5) # sleep for 0.5 seconds
+        lowLeft.angle = 90 # set left foot angle
+        lowRight.angle = 60 # set right foot angle
+        time.sleep(0.5) # sleep for 0.5 seconds
+        lowRight.angle = 90 # set right foot angle
+        count += 1 # increases count by 1
 
 def dance3():
     print("Dance 3")
