@@ -3,6 +3,17 @@ import displayio
 import adafruit_imageload
  
 display = board.DISPLAY
+
+# Release any resources currently in use for the displays
+displayio.release_displays()
+
+spi = board.SPI()
+tft_cs = board.D11
+tft_dc = board.D9
+
+display_bus = displayio.FourWire(spi, command=tft_dc, chip_select=tft_cs, reset=board.D7)
+
+display = ST7735R(display_bus, width=128, height=128, colstart=2, rowstart=1)
  
 bitmap, palette = adafruit_imageload.load("/helloimbub.bmp",
                                          bitmap=displayio.Bitmap,
