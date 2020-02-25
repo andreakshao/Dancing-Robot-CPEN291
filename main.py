@@ -768,7 +768,12 @@ def dance6():
         except RuntimeError:
             print("Retrying!") # error message
         count+=1 # increase the count by 1
-
+        
+lowLeft.angle = 90 # set left foot angle
+lowRight.angle = 90 # set right foot angle
+upLeft.angle = 90 # set left knee angle
+upRight.angle = 90 # set right knee angle
+time.sleep(1) # sleep for one second
 while True:
     pass
     # this is our main function. It runs on a loop and has all our dances

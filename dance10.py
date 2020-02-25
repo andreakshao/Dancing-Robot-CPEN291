@@ -24,25 +24,33 @@ def dance10():
     upRight.angle = 90 # set right knee angle
     time.sleep(1) # sleep for 1 second
     while True:
-        upLeft.angle = 130
-        upRight.angle = 50
-        time.sleep(2)
-        upLeft.angle = 50
-        upRight.angle = 130
-        time.sleep(2)
-        lowLeft.angle = 110
-        time.sleep(2)
-        lowLeft.angle = 90
-
-        upLeft.angle = 130
-        upRight.angle = 50
-        time.sleep(2)
-        upLeft.angle = 50
-        upRight.angle = 130
-        time.sleep(2)
-        lowRight.angle = 110
-        time.sleep(2)
-        lowRight.angle = 90
+        count = 0
+        while count < 2:
+            upLeft.angle = 130
+            upRight.angle = 50
+            time.sleep(0.5)
+            upLeft.angle = 50
+            upRight.angle = 130
+            time.sleep(0.5)
+            lowLeft.angle = 110
+            time.sleep(0.5)
+            lowLeft.angle = 90
+            lowRight.angle = 60
+            time.sleep(0.5)
+            lowRight.angle = 90
+            lowLeft.angle = 110
+            time.sleep(0.5)
+            lowLeft.angle = 90
+            lowRight.angle = 60
+            time.sleep(0.5)
+            lowRight.angle = 90
+            lowLeft.angle = 110
+            time.sleep(0.5)
+            lowLeft.angle = 90
+            lowRight.angle = 60
+            time.sleep(0.5)
+            lowRight.angle = 90
+            count += 1
             
 dance10()
 
