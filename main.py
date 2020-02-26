@@ -199,26 +199,18 @@ miiChannelBeats = [
     eighthNote, eighthNote+quarterNote, quarterNote, quarterNote
 ]
 
-def initalDisplay():
-    bitmap, palette = adafruit_imageload.load("/smile-8bpp.bmp", bitmap=displayio.Bitmap, palette=displayio.Palette)
-    # Create a TileGrid to hold the bitmap
-    tile_grid = displayio.TileGrid(bitmap, pixel_shader=palette)
-    # Create a Group to hold the TileGrid
-    group = displayio.Group()
-    # Add to the Group
-    group.append(tile_grid)
-    # Add the Group to the Display
-    display.show(group)
 
-def display1():
-    bitmap, palette = adafruit_imageload.load("/brain1.bmp", bitmap=displayio.Bitmap, palette=displayio.Palette)
-    # Create a TileGrid to hold the bitmap
+# Display image on the LCD
+def displayImg(fileName):
+    # Loads the bitmap image
+    bitmap, palette = adafruit_imageload.load(fileName, bitmap=displayio.Bitmap, palette=displayio.Palette)
+    # Create a TileGrid to store the bitmap
     tile_grid = displayio.TileGrid(bitmap, pixel_shader=palette)
-    # Create a Group to hold the TileGrid
+    # Create a Group to store the TileGrid
     group = displayio.Group()
-    # Add to the Group
+    # Add the titleGrid to the Group
     group.append(tile_grid)
-    # Add the Group to the Display
+    # Show the group
     display.show(group)
 
 
@@ -228,6 +220,9 @@ def miiProgram():
     upLeft.angle = 90 # set left knee angle
     upRight.angle = 90 # set right knee angle
     # this makes the robot face forward
+
+    # Display corresponding image on LCD
+    displayImg("/step.bmp")
 
     while 1:
         for index in range(0, len(miiChannelBeats), 1):
@@ -261,6 +256,8 @@ def dance1():
     # text_area.x = 30
     # text_area.y = 60
     # display.show(text_area)
+
+    displayImg("/fireFeet.bmp")
     
     print("Dance 1") # print the word Dance 1
     lowLeft.angle = 90 # set angle of left foot
@@ -673,7 +670,9 @@ upRight.angle = 90 # set right knee angle
 time.sleep(1) # sleep for one second
 while True:
     pass
-    initalDisplay()
+    # initalDisplay()
+    displayImg("/intro.bmp")
+    time.sleep(2)
     # this is our main function. It runs on a loop and has all our dances
     dance1() # dance 1
     dance2() # dance 2
