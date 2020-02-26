@@ -38,13 +38,6 @@ tft_dc = board.D9
 display_bus = displayio.FourWire(spi, command=tft_dc, chip_select=tft_cs, reset=board.D7)
 display = ST7735R(display_bus, width=128, height=128)
 
-# Make the display context
-splash = displayio.Group(max_size=20)
-my_label = label.Label(terminalio.FONT, text="My Label Text", color=0xFFFFFF, x = 40, y = 40)
-splash.append(my_label)
-# display.show(splash)
-
-
 # Define pin connected to piezo buzzer.
 # creating a bunch of note varriables to help create the song
 PIEZO_PIN = board.A1
@@ -220,8 +213,6 @@ def miiProgram():
     upLeft.angle = 90 # set left knee angle
     upRight.angle = 90 # set right knee angle
     # this makes the robot face forward
-
-    # Display corresponding image on LCD
 
     while 1:
         for index in range(0, len(miiChannelBeats), 1):
