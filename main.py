@@ -222,7 +222,7 @@ def miiProgram():
     # this makes the robot face forward
 
     # Display corresponding image on LCD
-    # displayImg("/step.bmp")
+    displayImg("/sleep.bmp")
 
     while 1:
         for index in range(0, len(miiChannelBeats), 1):
