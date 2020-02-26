@@ -222,7 +222,7 @@ def miiProgram():
     # this makes the robot face forward
 
     # Display corresponding image on LCD
-    displayImg("/step.bmp")
+    # displayImg("/step.bmp")
 
     while 1:
         for index in range(0, len(miiChannelBeats), 1):
@@ -312,7 +312,7 @@ def dance1():
 
 def dance2():
     print("Dance 2")
-    displayImg("/dancing.bmp")  #display corresponding image on LCD
+    displayImg("/jumpingJacks.bmp")  #display corresponding image on LCD
 
     global index # make sure the global varriable index can be accessed 
     if (index >= len(shootingStarsBeats) - 30):
@@ -345,24 +345,28 @@ def dance2():
         index = index + 1 # increase the index by 1
         lowLeft.angle = 90 # set left foot angle
         lowRight.angle = 60 # set right foot angle
+        time.sleep(1)
         checkSonar()
 
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         lowRight.angle = 90 # set right foot angle
         lowLeft.angle = 110 # set left foot angle
-        checkSonar()
+        time.sleep(1)
+        checkSonar()    
 
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         lowLeft.angle = 90 # set left foot angle
         lowRight.angle = 60 # set right foot angle
+        time.sleep(1)
         checkSonar()
 
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         lowRight.angle = 90 # set right foot angle
         lowLeft.angle = 110 # set left foot angle
+        time.sleep(1)
         checkSonar()
 
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
@@ -379,7 +383,7 @@ def dance2():
 
 def dance3():
     print("Dance 3")
-    displayImg("/shaker.bmp")  #display corresponding image on LCD
+    displayImg("/shuffle.bmp")  #display corresponding image on LCD
 
     global index # make sure the global varriable index can be accessed 
     if (index >= len(shootingStarsBeats) - 30):
@@ -429,7 +433,7 @@ def dance3():
 
 def dance4():
     print("Dance 4")
-    displayImg("/jumpingJacks.bmp") # Display corresponding img on LCD
+    displayImg("/step.bmp") # Display corresponding img on LCD
     
     global index # make sure the global varriable index can be accessed 
     if (index >= len(shootingStarsBeats) - 30):
@@ -534,7 +538,7 @@ def dance4():
 
 def dance5():
     print("Dance 5")
-    displayImg("/shuffle.bmp") # Display corresponding img on LCD
+    displayImg("/dancing.bmp") # Display corresponding img on LCD
     global index # make sure the global varriable index can be accessed 
     if (index >= len(shootingStarsBeats) - 30):
         index = 0 # if index is greater than the shootingStar song restart the song
