@@ -244,19 +244,12 @@ def checkSonar():
     except RuntimeError:
         print("Retrying!") # error message
         
+index = 0   # Initialize global variable to 0
 
-index = 0
 def dance1():
 
     global index # make sure the global varriable index can be accessed 
     index = 0 # this is the very first dance move. Set index to zero so restart the shooting star song
-
-    # setting up text to display on LCD
-    # text = "Starting Dance 1!"
-    # text_area = label.Label(terminalio.FONT, text=text)
-    # text_area.x = 30
-    # text_area.y = 60
-    # display.show(text_area)
 
     displayImg("/fireFeet.bmp") # Display corresponding img on LCD
     
