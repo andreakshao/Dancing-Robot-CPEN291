@@ -338,28 +338,24 @@ def dance2():
         index = index + 1 # increase the index by 1
         lowLeft.angle = 90 # set left foot angle
         lowRight.angle = 60 # set right foot angle
-        time.sleep(1)
         checkSonar()
 
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         lowRight.angle = 90 # set right foot angle
         lowLeft.angle = 110 # set left foot angle
-        time.sleep(1)
         checkSonar()    
 
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         lowLeft.angle = 90 # set left foot angle
         lowRight.angle = 60 # set right foot angle
-        time.sleep(1)
         checkSonar()
 
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         lowRight.angle = 90 # set right foot angle
         lowLeft.angle = 110 # set left foot angle
-        time.sleep(1)
         checkSonar()
 
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
