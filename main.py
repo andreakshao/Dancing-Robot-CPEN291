@@ -253,7 +253,7 @@ def dance1():
         # Because we only have one processor and we want to do two things at the same time we make it seem like it is threading
         # so we play the buzzer
         # the buzzer is given a note from the list shootingStarsNotes and its corresponding duration from shootingStarsBeats
-        # both of these places are determined by the global varrialbe index which is increased by 1 after each note
+        # both of these places are determined by the global variable index which is increased by 1 after each note
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         checkSonar()
