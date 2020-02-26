@@ -234,7 +234,8 @@ def miiProgram():
                 print("Retrying!")
             time.sleep(0.1) # wait 0.1 seconds
 
-def checkBuzzer():
+# Check if something is within 4cm of sonar 
+def checkSonar():
     try:
         distance = sonar.distance # get the distance from the sonar
         # check if distance is less than 4cm
@@ -257,7 +258,7 @@ def dance1():
     # text_area.y = 60
     # display.show(text_area)
 
-    displayImg("/fireFeet.bmp")
+    displayImg("/fireFeet.bmp") # Display corresponding img on LCD
     
     print("Dance 1") # print the word Dance 1
     lowLeft.angle = 90 # set angle of left foot
@@ -272,7 +273,7 @@ def dance1():
         # both of these places are determined by the global varrialbe index which is increased by 1 after each note
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
-        checkBuzzer()
+        checkSonar()
         lowLeft.angle = 120 # set left foot angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
@@ -282,7 +283,7 @@ def dance1():
         upLeft.angle = 60 # set left knee angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
-        checkBuzzer()
+        checkSonar()
         upLeft.angle = 120 # set left knee angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
@@ -292,7 +293,7 @@ def dance1():
         lowRight.angle = 120 # set right foot angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
-        checkBuzzer()
+        checkSonar()
         lowRight.angle = 60 # set right foot angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
@@ -302,7 +303,7 @@ def dance1():
         upRight.angle = 120 # set right knee angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
-        checkBuzzer()
+        checkSonar()
         upRight.angle = 60 # set right knee angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
@@ -310,6 +311,9 @@ def dance1():
 
 
 def dance2():
+    print("Dance 2")
+    displayImg("/dancing.bmp")  #display corresponding image on LCD
+
     global index # make sure the global varriable index can be accessed 
     if (index >= len(shootingStarsBeats) - 30):
         index = 0 # if index is greater than the shootingStar song restart the song
@@ -324,76 +328,63 @@ def dance2():
         # run this loop twice
         upLeft.angle = 130 # set left knee anlge
         upRight.angle = 50 # set right knee angle
-        checkBuzzer()
+        checkSonar()
 
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         upLeft.angle = 50 # set left knee angle
         upRight.angle = 130 # set right knee angle
-        checkBuzzer()
+        checkSonar()
 
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         lowLeft.angle = 110 # set left foot angle
-        checkBuzzer()
+        checkSonar()
 
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         lowLeft.angle = 90 # set left foot angle
         lowRight.angle = 60 # set right foot angle
-        checkBuzzer()
+        checkSonar()
 
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         lowRight.angle = 90 # set right foot angle
         lowLeft.angle = 110 # set left foot angle
-        checkBuzzer()
+        checkSonar()
 
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         lowLeft.angle = 90 # set left foot angle
         lowRight.angle = 60 # set right foot angle
-        checkBuzzer()
+        checkSonar()
 
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         lowRight.angle = 90 # set right foot angle
         lowLeft.angle = 110 # set left foot angle
-        checkBuzzer()
+        checkSonar()
 
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         lowLeft.angle = 90 # set left foot angle
         lowRight.angle = 60 # set right foot angle
-        checkBuzzer()
+        checkSonar()
 
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         lowRight.angle = 90 # set right foot angle
         count += 1 # increases count by 1
-
-    # setting up text to display on LCD
-    text = "Starting Dance 2!"
-    text_area = label.Label(terminalio.FONT, text=text)
-    text_area.x = 30
-    text_area.y = 60
-    display.show(text_area)
     
-    print("Dance 2")
 
 def dance3():
+    print("Dance 3")
+    displayImg("/shaker.bmp")  #display corresponding image on LCD
+
     global index # make sure the global varriable index can be accessed 
     if (index >= len(shootingStarsBeats) - 30):
         index = 0 # if index is greater than the shootingStar song restart the song
-
-    # setting up text to display on LCD
-    text = "Starting Dance 3!"
-    text_area = label.Label(terminalio.FONT, text=text)
-    text_area.x = 30
-    text_area.y = 60
-    display.show(text_area)
     
-    print("Dance 3")
     lowLeft.angle = 90 # set left foot angle
     lowRight.angle = 90 # set right foot angle
     upLeft.angle = 90 # set left knee angle
@@ -410,7 +401,7 @@ def dance3():
             # both of these places are determined by the global varrialbe index which is increased by 1 after each note
             simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
             index = index + 1 # increase the index by 1
-            checkBuzzer()
+            checkSonar()
 
         lowLeft.angle = num # set left foot angle
         lowRight.angle = 180 - num # set right foot angle
@@ -418,7 +409,7 @@ def dance3():
         upRight.angle = 180 - num # set right knee angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
-        checkBuzzer()
+        checkSonar()
 
     for num in range(120, 60, -20):
         upRight.angle = num # set right knee angle
@@ -427,28 +418,23 @@ def dance3():
         upRight.angle = 180 - num # set right knee angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
-        checkBuzzer()
+        checkSonar()
         if num % 40 == 0:
             # if num is a multiple of 40 do the following
             upRight.angle = num - 10 # set right knee angle
             upLeft.angle = num + 10 # set left knee angle
             simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
             index = index + 1 # increase the index by 1
-            checkBuzzer()
+            checkSonar()
 
 def dance4():
+    print("Dance 4")
+    displayImg("/jumpingJacks.bmp") # Display corresponding img on LCD
+    
     global index # make sure the global varriable index can be accessed 
     if (index >= len(shootingStarsBeats) - 30):
         index = 0 # if index is greater than the shootingStar song restart the song
 
-    # setting up text to display on LCD
-    text = "Starting Dance4!"
-    text_area = label.Label(terminalio.FONT, text=text)
-    text_area.x = 30
-    text_area.y = 60
-    display.show(text_area)
-    
-    print("Dance 4")
     for angle in range(70, 110, 20):  # 30 - 150 degrees, 5 degrees at a time.
         lowLeft.angle = angle # set left foot angle
         # Because we only have one processor and we want to do two things at the same time we make it seem like it is threading
@@ -457,14 +443,14 @@ def dance4():
         # both of these places are determined by the global varrialbe index which is increased by 1 after each note
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])  # play the buzzer
         index = index + 1 # increase the index by 1
-        checkBuzzer()
+        checkSonar()
         lowRight.angle = 180 - angle # set right foot angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])  # play the buzzer
         index = index + 1 # increase the index by 1
         upRight.angle = angle # set right knee angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])  # play the buzzer
         index = index + 1 # increase the index by 1
-        checkBuzzer()
+        checkSonar()
         upLeft.angle = 180 - angle # set left knee angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])  # play the buzzer
         index = index + 1 # increase the index by 1
@@ -472,14 +458,14 @@ def dance4():
         lowLeft.angle = angle # set left foot angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])  # play the buzzer
         index = index + 1 # increase the index by 1
-        checkBuzzer()
+        checkSonar()
         lowRight.angle = 180 - angle # set right foot angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])  # play the buzzer
         index = index + 1 # increase the index by 1
         upRight.angle = angle # set right knee angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])  # play the buzzer
         index = index + 1 # increase the index by 1
-        checkBuzzer()
+        checkSonar()
         upLeft.angle = 180 - angle # set left knee angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])  # play the buzzer
         index = index + 1 # increase the index by 1
@@ -490,14 +476,14 @@ def dance4():
             lowLeft.angle = angle - 10 # set left foot angle
             simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])  # play the buzzer
             index = index + 1 # increase the index by 1
-            checkBuzzer()
+            checkSonar()
             lowRight.angle = 180 - angle + 10 # set right foot angle
             simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])  # play the buzzer
             index = index + 1 # increase the index by 1
             upRight.angle = angle - 10 # set right knee angle
             simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])  # play the buzzer
             index = index + 1 # increase the index by 1
-            checkBuzzer()
+            checkSonar()
             upLeft.angle = 180 - angle + 10 # set left knee angle
             simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])  # play the buzzer
             index = index + 1 # increase the index by 1
@@ -505,14 +491,14 @@ def dance4():
         lowLeft.angle = angle # set left foot angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])  # play the buzzer
         index = index + 1 # increase the index by 1
-        checkBuzzer()
+        checkSonar()
         lowRight.angle = 180 - angle # set right foot angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])  # play the buzzer
         index = index + 1 # increase the index by 1
         upRight.angle = angle # set right knee angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])  # play the buzzer
         index = index + 1 # increase the index by 1
-        checkBuzzer()
+        checkSonar()
         upLeft.angle = 180 - angle # set left knee angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index])  # play the buzzer
         index = index + 1 # increase the index by 1
@@ -522,86 +508,75 @@ def dance4():
             # if angle is a multiple of 90 do the following
             lowLeft.angle = angle - 20 # set left foot angle
             time.sleep(0.1) # sleep for 0.1 seconds
-            checkBuzzer()
+            checkSonar()
             lowRight.angle = 180 - angle + 20 # set right foot angle
             time.sleep(0.1) # sleep for 0.1 seconds
             upRight.angle = angle - 20 # set right knee angle
             time.sleep(0.1) # sleep for 0.1 seconds
-            checkBuzzer()
+            checkSonar()
             upLeft.angle = 180 - angle + 20 # set left knee angle
             time.sleep(0.1) # sleep for 0.1 seconds
 
     lowLeft.angle = angle # set left foot angle
     simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
     index = index + 1 # increase the index by 1
-    checkBuzzer()
+    checkSonar()
     lowRight.angle = 180 - angle # set right foot angle
     simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
     index = index + 1 # increase the index by 1
     upRight.angle = angle # set right knee angle
     simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
     index = index + 1 # increase the index by 1
-    checkBuzzer()
+    checkSonar()
     upLeft.angle = 180 - angle # set left knee angle
     simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
     index = index + 1 # increase the index by 1
 
 def dance5():
+    print("Dance 5")
+    displayImg("/shuffle.bmp") # Display corresponding img on LCD
     global index # make sure the global varriable index can be accessed 
     if (index >= len(shootingStarsBeats) - 30):
         index = 0 # if index is greater than the shootingStar song restart the song
 
-    # setting up text to display on LCD
-    text = "Starting Dance5!"
-    text_area = label.Label(terminalio.FONT, text=text)
-    text_area.x = 30
-    text_area.y = 60
-    display.show(text_area)
-    
-    print("Dance 5")
     count = 0
     # this dance makes it shift backwards
     while count < 5:
         upRight.angle = 60 # set right knee angle
         upLeft.angle = 60 # set left knee angle
-        checkBuzzer()
+        checkSonar()
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         upLeft.angle = 120 # set left knee angle
         upRight.angle = 120 # set right knee angle
-        checkBuzzer()
+        checkSonar()
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         upRight.angle = 60 # set right knee angle
         upLeft.angle = 60 # set left knee angle
-        checkBuzzer()
+        checkSonar()
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         upRight.angle = 120 # set right knee angle
         upLeft.angle = 120 # set left knee angle
-        checkBuzzer()
+        checkSonar()
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         upRight.angle = 60 # set right knee angle
         upLeft.angle = 60 # set left knee angle
-        checkBuzzer()
+        checkSonar()
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
         count += 1 # increase count by 1
 
 def dance6():
+    print("Dance 6")
+    displayImg("/TipToe.bmp") # Display corresponding img on LCD
+
     global index # make sure the global varriable index can be accessed 
     if (index >= len(shootingStarsBeats) - 30):
         index = 0 # if index is greater than the shootingStar song restart the song
 
-    # setting up text to display on LCD
-    text = "Starting Dance 6!"
-    text_area = label.Label(terminalio.FONT, text=text)
-    text_area.x = 30
-    text_area.y = 60
-    display.show(text_area)
-    
-    print("Dance 6")
     count = 0 # set count to 0
     while count < 3:
         # run this set of code 3 times
@@ -618,7 +593,7 @@ def dance6():
             # both of these places are determined by the global varrialbe index which is increased by 1 after each note
             simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
             index = index + 1 # increase the index by 1
-            checkBuzzer()
+            checkSonar()
             if (angle == 90):
                 lowRight.angle = 120 # set right foot angle
                 lowLeft.angle = 60  # set left foot angle
@@ -628,7 +603,7 @@ def dance6():
                 lowLeft.angle = 120 # set left foot angle
                 simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
                 index = index + 1 # increase the index by 1
-                checkBuzzer()
+                checkSonar()
                 lowRight.angle = 120 # set right foot angle
                 lowLeft.angle = 60 # set left foot angle
                 simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
@@ -639,7 +614,7 @@ def dance6():
             upRight.angle = angle # set right knee angle
             simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
             index = index + 1 # increase the index by 1
-            checkBuzzer()
+            checkSonar()
             if (angle == 90):
                 # run this code only if the angle is 90 degrees
                 lowRight.angle = 120 # set right foot angle
@@ -650,7 +625,7 @@ def dance6():
                 lowLeft.angle = 120 # set left foot angle
                 simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
                 index = index + 1 # increase the index by 1
-                checkBuzzer()
+                checkSonar()
                 lowRight.angle = 120 # set right foot angle
                 lowLeft.angle = 60 # set left foot angle
                 simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
@@ -660,7 +635,7 @@ def dance6():
         upRight.angle = 90 # set right knee angle
         simpleio.tone(PIEZO_PIN, shootingStarsNotes[index], duration=shootingStarsBeats[index]) # play the buzzer
         index = index + 1 # increase the index by 1
-        checkBuzzer()
+        checkSonar()
         count+=1 # increase the count by 1
 
 lowLeft.angle = 90 # set left foot angle
@@ -681,6 +656,7 @@ while True:
     dance5() # dance 5
     dance6() # dance 6
     time.sleep(0.5)
+    displayImg("/splits.bmp")
     # do the splits
     upLeft.angle = 90 # set left knee angle
     upRight.angle = 90 # set right knee angle
